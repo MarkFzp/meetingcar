@@ -170,7 +170,7 @@ void data_transmit()
                                                                 //        目前控制只使用了 mid_12[12] 和 turn_flag 以及差速控制
                                                                 //        左边线、右边线、行宽  为之后更复杂的赛道做准备      
                                                                 //                                                             
-     //translation();
+     translation();
      //printf("test\n");
   /*
       for(i=0;i<60;i++)
@@ -189,7 +189,7 @@ void data_transmit()
   
     */ 
      
-     
+  // motor(100,100);
    if(start_mode==1)
    control_car();//进入遥控车模式
    else
@@ -255,7 +255,7 @@ void Task_50Hz_init()
     pit_init_ms(PIT2, 20);                                      // 20ms中断
     set_vector_handler(PIT2_VECTORn ,PIT2_IRQHandler);          //设置PIT2的中断服务函数为 PIT2_IRQHandler
     enable_irq (PIT2_IRQn);                                     //使能PIT2中断
-     set_irq_priority(PIT2_IRQn,2);
+    set_irq_priority(PIT2_IRQn,2);
 }
  
 void PIT2_IRQHandler(void)

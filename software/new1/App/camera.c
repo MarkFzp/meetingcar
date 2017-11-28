@@ -124,7 +124,7 @@ void imgx_process(int i,int *mid_x,int *length_x,int *LeftLine, int *RightLine)
         if(white_cnt==8)                        //滤去单个干扰像素                        
         {
                 subcript_r=j+7;
-                  =0;
+                white_cnt=0;
                 break;
         }
       }
