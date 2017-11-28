@@ -174,11 +174,6 @@ char img_process()
       sum = 0;
       cnt = 0;
     }   
-  }
-  
-
-  
-  
-  
+}
 return turn_flag;
 }
