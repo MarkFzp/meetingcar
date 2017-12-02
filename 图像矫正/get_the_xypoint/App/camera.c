@@ -154,10 +154,19 @@ char img_process()
   }
   translation();
   
-  img[r_x][r_y]=0;
+  img[r_x][r_y]=1;
+  
+  img[r_x-1][r_y-1]=0;
+  img[r_x-1][r_y]=0;
+  img[r_x-1][r_y+1]=0;
+  
+  img[r_x][r_y-1]=0;
+  img[r_x][r_y+1]=0;
   
   
-
+  img[r_x+1][r_y-1]=0;
+  img[r_x+1][r_y]=0;
+  img[r_x+1][r_y+1]=0;
   char turn_flag = 0;
   area = 0;
   

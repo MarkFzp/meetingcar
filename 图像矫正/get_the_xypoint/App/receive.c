@@ -61,7 +61,7 @@ void translation(void)//接收串口字符串程序
 	if (ftranslation == 1)
 	{
 		ftranslation = 0;
-		printf("strrecvrag=%s\n",str1);
+		//printf("strrecvrag=%s\n",str1);
 		//  OLED_P6x8(6,80,str1);
 		//OLED_P6x8(6, 80, str1);
 		temp = strtok(str1, "/");
