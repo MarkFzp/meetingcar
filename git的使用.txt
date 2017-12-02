@@ -1,22 +1,46 @@
-上传文件
+一、关于git的配置
+
+git clone https://github.com/Moonstarwork/meetingcar.git      
+ssh-keygen -t rsa
+cd ~/.ssh
+cat id_rsa.pub
+
+
+git config --global user.email "moonstarwork@163.com"
+git config --global user.name "moonstarwork"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+二、上传文件
 
 
 git status 
 git add -A
 git status
-
 git commit -m "t"
-
 git push origin master
 
 
 
-同步下载
+
+
+
+三、同步下载
 git pull origin master
-
-
-
-
 
 
 
