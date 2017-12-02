@@ -1,20 +1,7 @@
-
 #include "allheader.h" 
 #include "receive.h"
 #include "control_car.h"
 
-/*
- * @file       main.c
- * @brief      K60FX 教学工具
- * @objective：
-               left_max  = 1660;   
-               right_max = 1340;
-               steer_mid = 1500;
-              
-
- * @author     lclee
- * @date       2017-09-7 
- */
 
 
   void  main(void)
@@ -100,13 +87,13 @@ void control()
       
       arkm_coe = f_abs(steer_duty - 1500)/360.0 + 0.2;
 
-    V = (int)(350 - turn_flag*6.5f - 3.5f*f_abs(steer_err));     //弯道减速  
+    V = (int)(200 - turn_flag*6.5f - 3.5f*f_abs(steer_err));     //弯道减速  
     if(V < 150)
       V = 150;
     if(V > 800)
       V = 800;
     
-   dif_speed(V,steer_duty,0);
+    dif_speed(V,steer_duty,0);
    
 //  motor(150,150);
 //  ftm_pwm_duty(S3010_FTM, S3010_CH,steer_duty);
@@ -203,15 +190,13 @@ void data_transmit()
            else
            motor(0,0);
        }
-     
-     
    }
    
      i++;
       if(i == 2)
       {
-      time_point += 10;
-      i = 0;
+        time_point += 10;
+        i = 0;
       }
       
      
