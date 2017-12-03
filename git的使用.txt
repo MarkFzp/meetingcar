@@ -12,8 +12,14 @@ git push origin master
 
 
 
+三、注意点
+1.每次打开git,第一件事情 git pull
+2.在打开 IAR 工程之后 一定记住 点击运行 删除临时文件批处理程序
+3.每天的工作日志写在readme.txt中
 
-三、关于git的配置
+
+
+四、关于git的配置
 
 git clone https://github.com/Moonstarwork/meetingcar.git      
 ssh-keygen -t rsa
