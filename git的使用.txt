@@ -27,6 +27,7 @@ git config --global user.name "moonstarwork"
 
 二、上传文件
 
+git pull origin master //在push之前一定  pull 一下 ，因为其他小伙伴也修改的话 就 push不上去了。
 
 git status 
 git add -A
