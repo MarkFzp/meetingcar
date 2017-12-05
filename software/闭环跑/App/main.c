@@ -1,6 +1,6 @@
 /*
 
-此程序用于调试
+此程序用于开环临时使用
 
 
 
@@ -9,24 +9,39 @@
 
 #include "allheader.h" 
 #include "receive.h"
-#include "control_car.h"
-
-
-
+#include "control_car.h" 
+#include "SD.h"
   void  main(void)
 {
-
+ 
+    
 
     system_init();
-    
+   
     while(1)
     {
         
 
-     // Draw_img_black(img[0]);
+      Draw_img_black(img[0]);
     
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 extern float mid_12[12];
 extern const int left_max, right_max;
 
@@ -156,7 +171,7 @@ void data_transmit()
       current_flow_right = 1.0f*adc_once(ADC0_SE17, ADC_8bit);
       current_flow_left  = 1.0f*adc_once(ADC0_SE18, ADC_8bit);
       
-     turn_flag=img_process();                                  //返回最大的 全黑行  行数 作为转弯补偿的参考
+      turn_flag=img_process();                                  //返回最大的 全黑行  行数 作为转弯补偿的参考
                                                            // img_process() 计算完成以下数据：
                                                               //        midx[60]       中线
                                                                 //        mid_12[12]     每 5 行求平均 作为舵机控制的依据
@@ -168,6 +183,12 @@ void data_transmit()
                                                                 //                                                             
      //translation();
      //printf("test\n");
+      
+      
+      
+   //img_sd_init();
+  // img_sd_save(imgbuff,CAMERA_SIZE);
+  // img_sd_exit();
   /*
       for(i=0;i<60;i++)
      {
@@ -198,12 +219,14 @@ void data_transmit()
     ftm_pwm_duty(S3010_FTM, S3010_CH,1500);
    // motor(100,100);
    */
-    printf("%d %d\n",filter_echo_speed.left,filter_echo_speed.right);
+      
+   // motor(200,200);
+   // printf("%d %d\n",filter_echo_speed.left,filter_echo_speed.right);
       
    translation();
    if(start_mode==1)
    control_car();//进入遥控车模式
- /*  else
+   else
    {
        if(flag_stop==1)
        motor(0,0);
@@ -222,7 +245,7 @@ void data_transmit()
         time_point += 10;
         i = 0;
       }
-      */
+      
      
       //data_transmit();                                        //蓝牙数据回传
      
@@ -315,6 +338,7 @@ void IO_init(void)
     port_init_NoALT (PTD9 , PULLUP );
     port_init_NoALT (PTD10, PULLUP );
     port_init_NoALT (PTD11, PULLUP );
+    
     
     /**********按键*****************/
     
