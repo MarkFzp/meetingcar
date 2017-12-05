@@ -31,7 +31,7 @@ void  main(void)
 
     uint32 size, sizetmp;
     int res;
-    char *str = "感谢您选用 山外Kinetis开发板 ！^_^\n山外论坛:vcan123.com";
+    char *str = "感谢您选用 山外Kinetis开发板 ！^_^\n山外论坛:vcan123.com   moonstar";
     uint8 buff[BUFF_SIZE];
 
     memset(buff,0,BUFF_SIZE);

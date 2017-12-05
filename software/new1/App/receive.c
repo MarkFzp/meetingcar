@@ -22,7 +22,7 @@ int r_head=1,r_back=1,r_left=1,r_right=1,r_mid=1;
 int last_head,last_back;
 int f_head=1,f_back=1;
 int v_mode=0;
-int control_duty=1500;
+int control_duty=1560;
 
 
 

@@ -1,3 +1,12 @@
+/*
+
+此程序用于调试
+
+
+
+*/
+
+
 #include "allheader.h" 
 #include "receive.h"
 #include "control_car.h"
@@ -14,7 +23,7 @@
     {
         
 
-       Draw_img_black(img[0]);
+     // Draw_img_black(img[0]);
     
     }
 }
@@ -147,7 +156,7 @@ void data_transmit()
       current_flow_right = 1.0f*adc_once(ADC0_SE17, ADC_8bit);
       current_flow_left  = 1.0f*adc_once(ADC0_SE18, ADC_8bit);
       
-      turn_flag=img_process();                                  //返回最大的 全黑行  行数 作为转弯补偿的参考
+     // turn_flag=img_process();                                  //返回最大的 全黑行  行数 作为转弯补偿的参考
                                                            // img_process() 计算完成以下数据：
                                                               //        midx[60]       中线
                                                                 //        mid_12[12]     每 5 行求平均 作为舵机控制的依据
@@ -157,7 +166,7 @@ void data_transmit()
                                                                 //        目前控制只使用了 mid_12[12] 和 turn_flag 以及差速控制
                                                                 //        左边线、右边线、行宽  为之后更复杂的赛道做准备      
                                                                 //                                                             
-     translation();
+     //translation();
      //printf("test\n");
   /*
       for(i=0;i<60;i++)
@@ -175,11 +184,26 @@ void data_transmit()
      printf("\n");
   
     */ 
+
      
-  // motor(100,100);
+    /*    if(right_duty>0)
+       { 
+          ftm_pwm_duty(FTM0, FTM_CH1,0);
+          ftm_pwm_duty(FTM0, FTM_CH2,2000);
+        }
+        
+          ftm_pwm_duty(FTM0, FTM_CH3,2000); 
+          ftm_pwm_duty(FTM0, FTM_CH0,0);        
+      
+    ftm_pwm_duty(S3010_FTM, S3010_CH,1500);
+   // motor(100,100);
+   */
+    printf("%d %d\n",filter_echo_speed.left,filter_echo_speed.right);
+      
+   translation();
    if(start_mode==1)
    control_car();//进入遥控车模式
-   else
+ /*  else
    {
        if(flag_stop==1)
        motor(0,0);
@@ -198,11 +222,11 @@ void data_transmit()
         time_point += 10;
         i = 0;
       }
-      
+      */
      
       //data_transmit();                                        //蓝牙数据回传
      
- }
+}
 
 
  void system_init()
@@ -210,8 +234,8 @@ void data_transmit()
    
     gpio_init (PTE11,GPO,HIGH);                                //测试IO口 用示波器观察CPU利用率 
     IO_init();
-    adc_init(ADC0_SE17) ;
-    adc_init(ADC0_SE18) ;
+    adc_init(ADC0_SE17) ;//??
+    adc_init(ADC0_SE18) ;//??
     OLED_Init();  
     cameraInit();
     FTM_init();                                                 //电机和舵机初始化   
@@ -222,8 +246,6 @@ void data_transmit()
     bluetooth_init();//蓝牙初始化
     //Ultrasonic_init();                                        //超声波初始化  
     Task_50Hz_init();                                           //Task_50HZ 初始化
-  
- 
  }
 
 

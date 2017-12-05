@@ -176,6 +176,8 @@ void data_transmit()
     */ 
      
   // motor(100,100);
+      
+/*      
    if(start_mode==1)
    control_car();//进入遥控车模式
    else
@@ -198,7 +200,7 @@ void data_transmit()
         i = 0;
       }
       
-     
+     */
       //data_transmit();                                        //蓝牙数据回传
      
  }
