@@ -1,9 +1,5 @@
 /*
-
-此程序用于开环临时使用
-
-
-
+此程序用于使用....
 */
 
 
@@ -26,16 +22,6 @@
     
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -180,49 +166,11 @@ void data_transmit()
                                                                 //        length[60]     每行宽度
                                                                 //        目前控制只使用了 mid_12[12] 和 turn_flag 以及差速控制
                                                                 //        左边线、右边线、行宽  为之后更复杂的赛道做准备      
-                                                                //                                                             
-     //translation();
-     //printf("test\n");
-      
-      
-      
+                                                                //                                                                   
    //img_sd_init();
   // img_sd_save(imgbuff,CAMERA_SIZE);
   // img_sd_exit();
-  /*
-      for(i=0;i<60;i++)
-     {
-		 for ( j = 0; j < 80; j++)
-		 {
-			 if(img[i][j]==255)  printf("1");
-			 else
-			 {
-				 printf("0");
-			 }
-		 }
-		printf("\n");
-     }
-     printf("\n");
-  
-    */ 
 
-     
-    /*    if(right_duty>0)
-       { 
-          ftm_pwm_duty(FTM0, FTM_CH1,0);
-          ftm_pwm_duty(FTM0, FTM_CH2,2000);
-        }
-        
-          ftm_pwm_duty(FTM0, FTM_CH3,2000); 
-          ftm_pwm_duty(FTM0, FTM_CH0,0);        
-      
-    ftm_pwm_duty(S3010_FTM, S3010_CH,1500);
-   // motor(100,100);
-   */
-      
-   // motor(200,200);
-   // printf("%d %d\n",filter_echo_speed.left,filter_echo_speed.right);
-      
    translation();
    if(start_mode==1)
    control_car();//进入遥控车模式
@@ -254,7 +202,6 @@ void data_transmit()
 
  void system_init()
  {
-   
     gpio_init (PTE11,GPO,HIGH);                                //测试IO口 用示波器观察CPU利用率 
     IO_init();
     adc_init(ADC0_SE17) ;//??
@@ -295,8 +242,6 @@ void PIT2_IRQHandler(void)
     PTE11_OUT=0;
     PIT_Flag_Clear(PIT2);       //清中断标志位
 }
-
-
 
 
 void IO_init(void)
@@ -362,7 +307,6 @@ void IO_init(void)
     
 
 }
-
 float f_abs(float a)
 {
   if(a < 0)

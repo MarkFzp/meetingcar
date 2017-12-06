@@ -1,6 +1,6 @@
 
 
-b = load('85.txt');
+b = load('23.txt');
 imshow(b);
 
 

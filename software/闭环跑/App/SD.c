@@ -36,7 +36,7 @@ int im_num=0;
     
   void  SD_saveimg(void)
 {
-    
+/***********************一下为把图像存在字符串中********************************/    
     int i,j;
     sd_str[0]='\0';
     for(i=0;i<60;i++)
@@ -53,13 +53,10 @@ int im_num=0;
 		    
     } 
 
+/********************************************************/  
   
-  
-  
-  
-  
-  
-  
+    
+    
     memset(buff,0,BUFF_SIZE);
 
     f_mount(0, &fs);                                                               //挂载文件系统
@@ -68,7 +65,7 @@ int im_num=0;
     
      im_num++;
      
-     sprintf(img_file_name, "0:/%d.txt",im_num);
+     sprintf(img_file_name, "0:/one/xy%d.txt",im_num);
      res = f_open(&fdst,img_file_name, FA_OPEN_ALWAYS | FA_WRITE | FA_READ);  //打开文件，如果没有就创建，带读写打开
 
     if( res == FR_DISK_ERR)
@@ -101,7 +98,8 @@ int im_num=0;
     f_lseek(&fdst, 0);                      //把指针指向文件顶部
     f_read (&fdst, buff, size, &sizetmp);   //读取
 
-    printf("文件内容为：\n%s", (char const *)buff);
+    //printf("文件内容为：\n%s", (char const *)buff);//屏蔽此处有利于加快速度
+    
     f_close(&fdst);                         //关闭文件
 }
 

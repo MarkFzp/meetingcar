@@ -148,9 +148,9 @@ char img_process()
   for(;i<60;i++)
   {
   imgx_process(i,&midx[i],&length[i],&left_line[i], &right_line[i],&right_mid[i]);    //行处理 找到每行的左边界 右边界 中点 宽度
-  if(midx[i] < 80)
-    img[i][ midx[i] ] = 0;//中心划线在OLED上显示出来
-    img[i][right_mid[i]]=0;
+ // if(midx[i] < 80)
+   // img[i][ midx[i] ] = 0;//中心划线在OLED上显示出来
+   // img[i][right_mid[i]]=0;
   }
 
   char turn_flag = 0;
