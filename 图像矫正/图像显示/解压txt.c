@@ -5,23 +5,22 @@ int main()
 	int i,j;
 	FILE *fpread;
 	FILE *fwrite;
-	
-	fpread=fopen("i.txt","r");//matlabœ‘
-	fwrite=fopen("write.txt","w");
+	int x;
+	fpread=fopen("3.TXT","r");//matlabœ‘
+//	fwrite=fopen("write.txt","w");
 	
 	
 	for(i=0;i<60;i++)
 	{
 		for(j=0;j<80;j++)
 		{
-				
-			fprintf(fwrite,"%d ",i);
+		   fscanf(fpread,"%d",&x);
+		   printf("%d ",x);	
 		}
-		//fscanf(fpread,"%c",&num);
-	    fprintf(fwrite,"\n");
 	}
-	
+	fclose(fpread);
 
+ 
 	
 //	printf("%c\n",num);
 
