@@ -1,4 +1,31 @@
-噶
-
-尝试 走 一编流程
-再次修改 再再次修改
+//#pragma parallel omp for
+   for (int i = 0; i < realWidth; i ++)
+   {
+    //#pragma parallel omp for
+    for (int j = 0; j < realHeight; j ++)
+    {
+     // 图像物理坐标系中点在图像像素坐标系中的对应点u、v
+     double u = i - 65;
+     double v = j - 25;
+     // 根据图像在图像物理和图像像素坐标系中点的关系来计算图像物理坐标系中的点
+     // 
+     // u = x / dx + u0  fx = 1 / dx
+     // v = y / dy + v0  fy = 1 / dy
+     double x = (u - u0) / fx;
+     double y = (v - v0) / fy;
+     double r2 = pow(x, 2) + pow(y, 2);
+     double r4 = pow(r2, 2);
+     double fr = 1 + k1 * r2 + k2 * r4 + k3 * r2 * r4;
+     double ud = (u - u0) * fr + u0;
+     double vd = (v - v0) * fr + v0;
+     int u0 = int(ud);
+     int v0 = int(vd);
+     int u1 = int(1 + ud);
+     int v1 = int(1 + vd);
+     if (ud > 0 && ud < 640 && vd > 0 && vd < 480)
+     {
+      fcImagePlus->image.pData[i + j * realWidth] = pixelInterpolation(tmpImage[0].image.pData, 
+                                                              ud, vd, u0, v0, u1, v1);
+     }
+    }
+   }
