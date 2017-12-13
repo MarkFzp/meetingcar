@@ -65,7 +65,7 @@ int im_num=0;
     
      im_num++;
      
-     sprintf(img_file_name, "0:/one/xy%d.txt",im_num);
+     sprintf(img_file_name, "0:/day1/%d.txt",im_num);
      res = f_open(&fdst,img_file_name, FA_OPEN_ALWAYS | FA_WRITE | FA_READ);  //打开文件，如果没有就创建，带读写打开
 
     if( res == FR_DISK_ERR)
@@ -94,6 +94,7 @@ int im_num=0;
     printf( "\n文件大小为：%d \n" , size);  //串口打印文件的大小
 
     if(size > BUFF_SIZE)size = BUFF_SIZE;   //防止溢出
+    printf("第%d张图片\n",im_num);
 
     f_lseek(&fdst, 0);                      //把指针指向文件顶部
     f_read (&fdst, buff, size, &sizetmp);   //读取

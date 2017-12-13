@@ -509,6 +509,12 @@
   <group>
     <name>App</name>
     <file>
+      <name>$PROJ_DIR$\..\..\App\init.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\App\init.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\App\main.c</name>
     </file>
     <file>
@@ -768,6 +774,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\App\FTM.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\App\go.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\App\go.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\App\receive.c</name>

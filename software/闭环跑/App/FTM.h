@@ -10,7 +10,7 @@
 extern const int left_max;
 extern const int right_max;
 extern const int steer_mid;
-
+void echo_speed_process(void);
 
 
 struct _echo    
