@@ -1,0 +1,2302 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.20.2.7424/W32 for ARM        28/Jul/2015  02:43:05
+# Copyright 1999-2014 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\app\CONTROL.c
+#    Command line =  
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\app\CONTROL.c
+#        -D LPLD_K60 -D USE_K60F12 -lCN
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\FLASH\List\
+#        -lB
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\FLASH\List\
+#        -o
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\FLASH\Obj\
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4F -e --fpu=None --dlib_config "C:\Program Files\IAR
+#        Systems\Embedded Workbench 7.0\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\app\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\CPU\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\common\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\LPLD\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\LPLD\HW\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\LPLD\DEV\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\LPLD\FUNC\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\uCOS-II\Ports\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\uCOS-II\Source\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\FatFs\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\FatFs\option\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\USB\common\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\USB\driver\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\USB\descriptor\
+#        -I
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\..\..\..\lib\USB\class\
+#        -Ol -I "C:\Program Files\IAR Systems\Embedded Workbench
+#        7.0\arm\CMSIS\Include\" -D ARM_MATH_CM4
+#    List file    =  
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\FLASH\List\CONTROL.lst
+#    Object file  =  
+#        C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\iar\FLASH\Obj\CONTROL.o
+#
+###############################################################################
+
+C:\Users\Administrator\Desktop\lpld\LPLD_OSKinetis_V3.1\project\ligen_car通用7-27-3.54\app\CONTROL.c
+      1          #include "CONTROL.h"
+      2          #include "SYS.h"
+      3          //调试用变量
+
+   \                                 In section .data, align 4
+      4          int caidan=-10;
+   \                     caidan:
+   \   00000000   0xFFFFFFF6         DC32 -10
+      5          int GetSteerError2(int start,int end,float midpos);
+      6          float GetSteerError(unsigned char start,unsigned char end,float midpos);
+      7          //
+      8          
+
+   \                                 In section .bss, align 4
+      9          int Error = 0.0;
+   \                     Error:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+     10          int Errora=0.0;
+   \                     Errora:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+     11          int LastError = 0.0;
+   \                     LastError:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+     12          int TemError = 0.0;
+   \                     TemError:
+   \   00000000                      DS8 4
+
+   \                                 In section .data, align 4
+     13          int MidPos_h=RowMax-1;
+   \                     MidPos_h:
+   \   00000000   0x00000063         DC32 99
+
+   \                                 In section .bss, align 4
+     14          int duoji=0;
+   \                     duoji:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+     15          int interror=0;
+   \                     interror:
+   \   00000000                      DS8 4
+     16          
+
+   \                                 In section .data, align 4
+     17          int Foresight =RowMax-1;
+   \                     Foresight:
+   \   00000000   0x00000063         DC32 99
+
+   \                                 In section .bss, align 4
+     18          int SpeedPid = 0;
+   \                     SpeedPid:
+   \   00000000                      DS8 4
+
+   \                                 In section .data, align 4
+     19          float k = 1.0;
+   \                     k:
+   \   00000000   0x3F800000         DC32 3F800000H
+
+   \                                 In section .bss, align 4
+     20          int HighSpeedFlag = 0;
+   \                     HighSpeedFlag:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+     21          int StopNowCount=0;
+   \                     StopNowCount:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+     22          int HighSpeedCount = 0;
+   \                     HighSpeedCount:
+   \   00000000                      DS8 4
+     23          
+
+   \                                 In section .bss, align 4
+     24          int yxh=0;
+   \                     yxh:
+   \   00000000                      DS8 4
+     25          
+     26          #define dz 1.5
+     27          #if (0)
+     28          
+     29          float StraightK = 0.5*dz;	//0直道系数
+     30          float SmallSK = 0.7*dz;	//1小S系数
+     31          float BigSK = 0.8*dz;	//2大S系数
+     32          float BendK = 1*dz;	//3急弯
+     33          float CommonK = 1*dz;	//普通系数
+     34          float StraightToBendK = 1*dz;	
+     35          #else
+
+   \                                 In section .data, align 4
+     36          float StraightK = 1*dz;	//0直道系数
+   \                     StraightK:
+   \   00000000   0x3FC00000         DC32 3FC00000H
+
+   \                                 In section .data, align 4
+     37          float SmallSK = 1*dz;	//1小S系数
+   \                     SmallSK:
+   \   00000000   0x3FC00000         DC32 3FC00000H
+
+   \                                 In section .data, align 4
+     38          float BigSK = 1*dz;	//2大S系数
+   \                     BigSK:
+   \   00000000   0x3FC00000         DC32 3FC00000H
+
+   \                                 In section .data, align 4
+     39          float BendK = 1*dz;	//3急弯
+   \                     BendK:
+   \   00000000   0x3FC00000         DC32 3FC00000H
+
+   \                                 In section .data, align 4
+     40          float CommonK =1*dz;	//普通系数
+   \                     CommonK:
+   \   00000000   0x3FC00000         DC32 3FC00000H
+
+   \                                 In section .data, align 4
+     41          float StraightToBendK =1*dz;
+   \                     StraightToBendK:
+   \   00000000   0x3FC00000         DC32 3FC00000H
+     42          
+     43          
+     44          
+     45          #endif
+     46          
+     47          
+     48          #define afs RowMax-1
+
+   \                                 In section .data, align 4
+     49          int StraightFS = afs;	//35						//直道前瞻
+   \                     StraightFS:
+   \   00000000   0x00000063         DC32 99
+
+   \                                 In section .data, align 4
+     50          int SmallSFS = afs;//35							//小s前瞻
+   \                     SmallSFS:
+   \   00000000   0x00000063         DC32 99
+
+   \                                 In section .data, align 4
+     51          int BigFS = afs;//22								//大S前瞻
+   \                     BigFS:
+   \   00000000   0x00000063         DC32 99
+
+   \                                 In section .data, align 4
+     52          int BendFS =afs;//20								//急弯前瞻
+   \                     BendFS:
+   \   00000000   0x00000063         DC32 99
+
+   \                                 In section .data, align 4
+     53          int CommonFS = afs;//25							//普通前瞻
+   \                     CommonFS:
+   \   00000000   0x00000063         DC32 99
+
+   \                                 In section .data, align 4
+     54          int StraightToBendFS = afs;//25
+   \                     StraightToBendFS:
+   \   00000000   0x00000063         DC32 99
+     55          
+     56          #define startsee 1
+     57          
+     58          
+     59          
+
+   \                                 In section .data, align 1
+     60          unsigned char StraightEnd = RowMax-startsee;					//直道截止行
+   \                     StraightEnd:
+   \   00000000   0x63               DC8 99
+
+   \                                 In section .data, align 1
+     61          unsigned char SmallSEnd = RowMax-startsee;						//小S弯截止行
+   \                     SmallSEnd:
+   \   00000000   0x63               DC8 99
+
+   \                                 In section .data, align 1
+     62          unsigned char BigSEnd = RowMax-startsee;						//大S弯截止行
+   \                     BigSEnd:
+   \   00000000   0x63               DC8 99
+
+   \                                 In section .data, align 1
+     63          unsigned char BendEnd = RowMax-startsee;						//急弯截止行
+   \                     BendEnd:
+   \   00000000   0x63               DC8 99
+
+   \                                 In section .data, align 1
+     64          unsigned char CommonEnd = RowMax-startsee;						//普通截止行
+   \                     CommonEnd:
+   \   00000000   0x63               DC8 99
+
+   \                                 In section .data, align 1
+     65          unsigned char StraightToBenEnd = RowMax-startsee;				//直入弯截止行
+   \                     StraightToBenEnd:
+   \   00000000   0x63               DC8 99
+
+   \                                 In section .data, align 1
+     66          unsigned char FarWeight = 5;							//权重
+   \                     FarWeight:
+   \   00000000   0x05               DC8 5
+     67          
+     68          
+     69          
+     70          
+
+   \                                 In section .bss, align 1
+     71          unsigned char IsStartLine=0;
+   \                     IsStartLine:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 1
+     72          unsigned char IsOutRoad=0;
+   \                     IsOutRoad:
+   \   00000000                      DS8 1
+     73          unsigned char IsOutRoad;							//跑出跑道
+     74          
+
+   \                                 In section .bss, align 1
+     75          unsigned char IsCrossing=0;
+   \                     IsCrossing:
+   \   00000000                      DS8 1
+
+   \                                 In section .data, align 1
+     76          unsigned char StraightSpeed=80;
+   \                     StraightSpeed:
+   \   00000000   0x50               DC8 80
+
+   \                                 In section .data, align 1
+     77          unsigned char SmallSSpeed=15;
+   \                     SmallSSpeed:
+   \   00000000   0x0F               DC8 15
+
+   \                                 In section .data, align 1
+     78          unsigned char BigSSpeed=15;
+   \                     BigSSpeed:
+   \   00000000   0x0F               DC8 15
+
+   \                                 In section .data, align 1
+     79          unsigned char BendSpeed=15;
+   \                     BendSpeed:
+   \   00000000   0x0F               DC8 15
+
+   \                                 In section .data, align 1
+     80          unsigned char StraightToBendSpeed=15;
+   \                     StraightToBendSpeed:
+   \   00000000   0x0F               DC8 15
+
+   \                                 In section .data, align 1
+     81          unsigned char CommonSpeed=15;
+   \                     CommonSpeed:
+   \   00000000   0x0F               DC8 15
+     82          
+
+   \                                 In section .bss, align 1
+     83          unsigned char AllStraightCount=0;
+   \                     AllStraightCount:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 1
+     84          unsigned char AllSmallSCount=0;
+   \                     AllSmallSCount:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 1
+     85          unsigned char CanSpeedUp=0;
+   \                     CanSpeedUp:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 1
+     86          unsigned char IncreaseSpeed1=0;
+   \                     IncreaseSpeed1:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 1
+     87          unsigned char IncreaseSpeed2=0;
+   \                     IncreaseSpeed2:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 1
+     88          unsigned char IncreaseSpeed3=0;
+   \                     IncreaseSpeed3:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 1
+     89          unsigned char MotorSpeed=0;
+   \                     MotorSpeed:
+   \   00000000                      DS8 1
+     90          
+
+   \                                 In section .data, align 4
+     91          int MidPos=42;
+   \                     MidPos:
+   \   00000000   0x0000002A         DC32 42
+
+   \                                 In section .bss, align 4
+     92          int sfminline_last;
+   \                     sfminline_last:
+   \   00000000                      DS8 4
+     93          //速度控制
+
+   \                                 In section .text, align 2, keep-with-next
+     94          void SpeedCtrol()
+     95          {
+   \                     SpeedCtrol: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     96            if(IsStartLine || IsOutRoad)
+   \   00000002   0x.... 0x....      LDR.W    R0,??DataTable4
+   \   00000006   0x7800             LDRB     R0,[R0, #+0]
+   \   00000008   0x2800             CMP      R0,#+0
+   \   0000000A   0xD104             BNE.N    ??SpeedCtrol_0
+   \   0000000C   0x.... 0x....      LDR.W    R0,??DataTable4_1
+   \   00000010   0x7800             LDRB     R0,[R0, #+0]
+   \   00000012   0x2800             CMP      R0,#+0
+   \   00000014   0xD004             BEQ.N    ??SpeedCtrol_1
+     97            {
+     98              SpeedPid = 0;
+   \                     ??SpeedCtrol_0: (+1)
+   \   00000016   0x2000             MOVS     R0,#+0
+   \   00000018   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   0000001C   0x6008             STR      R0,[R1, #+0]
+     99              return;
+   \   0000001E   0xE0D2             B.N      ??SpeedCtrol_2
+    100            }
+    101            
+    102            if(StableNumbers < 10 && StableNumbers > 5)
+   \                     ??SpeedCtrol_1: (+1)
+   \   00000020   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   00000024   0x6800             LDR      R0,[R0, #+0]
+   \   00000026   0x1F80             SUBS     R0,R0,#+6
+   \   00000028   0x2804             CMP      R0,#+4
+   \   0000002A   0xF0C0 0x80CC      BCC.W    ??SpeedCtrol_2
+    103            {
+    104              return;
+    105            }
+    106            
+    107            //	if(RoadType != 0 && RoadType != 1 && CanSpeedUp)
+    108            //	{
+    109            //		if(HighSpeedFlag)
+    110            //		{
+    111            //			SpeedPid = 160;
+    112            //			MotorRun(-500);
+    113            //			StopNowCount++;
+    114            //			if(StopNowCount > 8)
+    115            //			{
+    116            //				StopNowCount = 0;
+    117            //				HighSpeedFlag = 0;
+    118            //			}
+    119            //			return;	
+    120            //		}
+    121            //		else
+    122            //		{
+    123            //			HighSpeedFlag = 0;	
+    124            //		}
+    125            //	}
+    126            //	else
+    127            //	{
+    128            //		StopNowCount=0;	
+    129            //	}
+    130            
+    131            if(IsCrossing)
+   \                     ??SpeedCtrol_3: (+1)
+   \   0000002E   0x.... 0x....      LDR.W    R0,??DataTable4_4
+   \   00000032   0x7800             LDRB     R0,[R0, #+0]
+   \   00000034   0x2800             CMP      R0,#+0
+   \   00000036   0xF040 0x80C6      BNE.W    ??SpeedCtrol_2
+    132            {
+    133              //SpeedPid = BigSSpeed;
+    134              return;
+    135            }
+    136            
+    137            switch(RoadType)
+   \                     ??SpeedCtrol_4: (+1)
+   \   0000003A   0x.... 0x....      LDR.W    R0,??DataTable4_5
+   \   0000003E   0xF990 0x0000      LDRSB    R0,[R0, #+0]
+   \   00000042   0x2800             CMP      R0,#+0
+   \   00000044   0xD008             BEQ.N    ??SpeedCtrol_5
+   \   00000046   0x2801             CMP      R0,#+1
+   \   00000048   0xD025             BEQ.N    ??SpeedCtrol_6
+   \   0000004A   0x2802             CMP      R0,#+2
+   \   0000004C   0xD030             BEQ.N    ??SpeedCtrol_7
+   \   0000004E   0x2803             CMP      R0,#+3
+   \   00000050   0xD03F             BEQ.N    ??SpeedCtrol_8
+   \   00000052   0x2867             CMP      R0,#+103
+   \   00000054   0xD04E             BEQ.N    ??SpeedCtrol_9
+   \   00000056   0xE05E             B.N      ??SpeedCtrol_10
+    138            {					   
+    139            case 0://直
+    140              SpeedPid = StraightSpeed;
+   \                     ??SpeedCtrol_5: (+1)
+   \   00000058   0x.... 0x....      LDR.W    R0,??DataTable4_6
+   \   0000005C   0x7800             LDRB     R0,[R0, #+0]
+   \   0000005E   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   00000062   0x6008             STR      R0,[R1, #+0]
+    141              MotorUpdatePWM(0,MotorPidCal(StraightSpeed));
+   \   00000064   0x.... 0x....      LDR.W    R0,??DataTable4_6
+   \   00000068   0x7800             LDRB     R0,[R0, #+0]
+   \   0000006A   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   0000006C   0x.... 0x....      BL       MotorPidCal
+   \   00000070   0x0001             MOVS     R1,R0
+   \   00000072   0x2000             MOVS     R0,#+0
+   \   00000074   0x.... 0x....      BL       MotorUpdatePWM
+    142              if(AllStraightCount > 10 && AllSmallSCount > 20)
+   \   00000078   0x.... 0x....      LDR.W    R0,??DataTable4_7
+   \   0000007C   0x7800             LDRB     R0,[R0, #+0]
+   \   0000007E   0x280B             CMP      R0,#+11
+   \   00000080   0xDB08             BLT.N    ??SpeedCtrol_11
+   \   00000082   0x.... 0x....      LDR.W    R0,??DataTable4_8
+   \   00000086   0x7800             LDRB     R0,[R0, #+0]
+   \   00000088   0x2815             CMP      R0,#+21
+   \   0000008A   0xDB03             BLT.N    ??SpeedCtrol_11
+    143              {
+    144                HighSpeedFlag = 1;	
+   \   0000008C   0x2001             MOVS     R0,#+1
+   \   0000008E   0x.... 0x....      LDR.W    R1,??DataTable4_9
+   \   00000092   0x6008             STR      R0,[R1, #+0]
+    145              }
+    146              break;
+   \                     ??SpeedCtrol_11: (+1)
+   \   00000094   0xE04F             B.N      ??SpeedCtrol_12
+    147            case 1://s
+    148              SpeedPid = SmallSSpeed;
+   \                     ??SpeedCtrol_6: (+1)
+   \   00000096   0x.... 0x....      LDR.W    R0,??DataTable4_10
+   \   0000009A   0x7800             LDRB     R0,[R0, #+0]
+   \   0000009C   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   000000A0   0x6008             STR      R0,[R1, #+0]
+    149              MotorUpdatePWM(0,SmallSSpeed);
+   \   000000A2   0x.... 0x....      LDR.W    R0,??DataTable4_10
+   \   000000A6   0x7801             LDRB     R1,[R0, #+0]
+   \   000000A8   0x2000             MOVS     R0,#+0
+   \   000000AA   0x.... 0x....      BL       MotorUpdatePWM
+    150              //			if(AllSmallSCount > 35)
+    151              //			{	
+    152              //				HighSpeedFlag = 1;
+    153              //			}	
+    154              break;
+   \   000000AE   0xE042             B.N      ??SpeedCtrol_12
+    155            case 2://S
+    156              SpeedPid = BigSSpeed;
+   \                     ??SpeedCtrol_7: (+1)
+   \   000000B0   0x.... 0x....      LDR.W    R0,??DataTable4_11
+   \   000000B4   0x7800             LDRB     R0,[R0, #+0]
+   \   000000B6   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   000000BA   0x6008             STR      R0,[R1, #+0]
+    157              MotorUpdatePWM(0,BigSSpeed);
+   \   000000BC   0x.... 0x....      LDR.W    R0,??DataTable4_11
+   \   000000C0   0x7801             LDRB     R1,[R0, #+0]
+   \   000000C2   0x2000             MOVS     R0,#+0
+   \   000000C4   0x.... 0x....      BL       MotorUpdatePWM
+    158              HighSpeedFlag = 0;
+   \   000000C8   0x2000             MOVS     R0,#+0
+   \   000000CA   0x.... 0x....      LDR.W    R1,??DataTable4_9
+   \   000000CE   0x6008             STR      R0,[R1, #+0]
+    159              break;
+   \   000000D0   0xE031             B.N      ??SpeedCtrol_12
+    160            case 3://急弯
+    161              SpeedPid = BendSpeed;
+   \                     ??SpeedCtrol_8: (+1)
+   \   000000D2   0x.... 0x....      LDR.W    R0,??DataTable4_12
+   \   000000D6   0x7800             LDRB     R0,[R0, #+0]
+   \   000000D8   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   000000DC   0x6008             STR      R0,[R1, #+0]
+    162              MotorUpdatePWM(0,BendSpeed);
+   \   000000DE   0x.... 0x....      LDR.W    R0,??DataTable4_12
+   \   000000E2   0x7801             LDRB     R1,[R0, #+0]
+   \   000000E4   0x2000             MOVS     R0,#+0
+   \   000000E6   0x.... 0x....      BL       MotorUpdatePWM
+    163              HighSpeedFlag = 0;
+   \   000000EA   0x2000             MOVS     R0,#+0
+   \   000000EC   0x.... 0x....      LDR.W    R1,??DataTable4_9
+   \   000000F0   0x6008             STR      R0,[R1, #+0]
+    164              break;
+   \   000000F2   0xE020             B.N      ??SpeedCtrol_12
+    165            case 103:
+    166              SpeedPid = StraightToBendSpeed;
+   \                     ??SpeedCtrol_9: (+1)
+   \   000000F4   0x.... 0x....      LDR.W    R0,??DataTable4_13
+   \   000000F8   0x7800             LDRB     R0,[R0, #+0]
+   \   000000FA   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   000000FE   0x6008             STR      R0,[R1, #+0]
+    167              MotorUpdatePWM(0,StraightToBendSpeed);
+   \   00000100   0x.... 0x....      LDR.W    R0,??DataTable4_13
+   \   00000104   0x7801             LDRB     R1,[R0, #+0]
+   \   00000106   0x2000             MOVS     R0,#+0
+   \   00000108   0x.... 0x....      BL       MotorUpdatePWM
+    168              HighSpeedFlag = 0;
+   \   0000010C   0x2000             MOVS     R0,#+0
+   \   0000010E   0x.... 0x....      LDR.W    R1,??DataTable4_9
+   \   00000112   0x6008             STR      R0,[R1, #+0]
+    169              break;
+   \   00000114   0xE00F             B.N      ??SpeedCtrol_12
+    170            default:
+    171              SpeedPid = CommonSpeed;
+   \                     ??SpeedCtrol_10: (+1)
+   \   00000116   0x.... 0x....      LDR.W    R0,??DataTable4_14
+   \   0000011A   0x7800             LDRB     R0,[R0, #+0]
+   \   0000011C   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   00000120   0x6008             STR      R0,[R1, #+0]
+    172              MotorUpdatePWM(0,CommonSpeed);
+   \   00000122   0x.... 0x....      LDR.W    R0,??DataTable4_14
+   \   00000126   0x7801             LDRB     R1,[R0, #+0]
+   \   00000128   0x2000             MOVS     R0,#+0
+   \   0000012A   0x.... 0x....      BL       MotorUpdatePWM
+    173              HighSpeedFlag = 0;
+   \   0000012E   0x2000             MOVS     R0,#+0
+   \   00000130   0x.... 0x....      LDR.W    R1,??DataTable4_9
+   \   00000134   0x6008             STR      R0,[R1, #+0]
+    174              break;
+    175            }
+    176            if(HighSpeedFlag == 1 && CanSpeedUp)
+   \                     ??SpeedCtrol_12: (+1)
+   \   00000136   0x.... 0x....      LDR.W    R0,??DataTable4_9
+   \   0000013A   0x6800             LDR      R0,[R0, #+0]
+   \   0000013C   0x2801             CMP      R0,#+1
+   \   0000013E   0xD142             BNE.N    ??SpeedCtrol_13
+   \   00000140   0x.... 0x....      LDR.W    R0,??DataTable4_15
+   \   00000144   0x7800             LDRB     R0,[R0, #+0]
+   \   00000146   0x2800             CMP      R0,#+0
+   \   00000148   0xD03D             BEQ.N    ??SpeedCtrol_13
+    177            {
+    178              if(AllStraightCount > 15 && AllSmallSCount > 27)
+   \   0000014A   0x.... 0x....      LDR.W    R0,??DataTable4_7
+   \   0000014E   0x7800             LDRB     R0,[R0, #+0]
+   \   00000150   0x2810             CMP      R0,#+16
+   \   00000152   0xDB0F             BLT.N    ??SpeedCtrol_14
+   \   00000154   0x.... 0x....      LDR.W    R0,??DataTable4_8
+   \   00000158   0x7800             LDRB     R0,[R0, #+0]
+   \   0000015A   0x281C             CMP      R0,#+28
+   \   0000015C   0xDB0A             BLT.N    ??SpeedCtrol_14
+    179              {
+    180                SpeedPid = StraightSpeed + IncreaseSpeed1;	
+   \   0000015E   0x.... 0x....      LDR.W    R0,??DataTable4_6
+   \   00000162   0x7800             LDRB     R0,[R0, #+0]
+   \   00000164   0x.... 0x....      LDR.W    R1,??DataTable4_16
+   \   00000168   0x7809             LDRB     R1,[R1, #+0]
+   \   0000016A   0x1808             ADDS     R0,R1,R0
+   \   0000016C   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   00000170   0x6008             STR      R0,[R1, #+0]
+   \   00000172   0xE028             B.N      ??SpeedCtrol_13
+    181              }
+    182              else if(AllStraightCount > 10 && AllSmallSCount > 25)
+   \                     ??SpeedCtrol_14: (+1)
+   \   00000174   0x.... 0x....      LDR.W    R0,??DataTable4_7
+   \   00000178   0x7800             LDRB     R0,[R0, #+0]
+   \   0000017A   0x280B             CMP      R0,#+11
+   \   0000017C   0xDB0F             BLT.N    ??SpeedCtrol_15
+   \   0000017E   0x.... 0x....      LDR.W    R0,??DataTable4_8
+   \   00000182   0x7800             LDRB     R0,[R0, #+0]
+   \   00000184   0x281A             CMP      R0,#+26
+   \   00000186   0xDB0A             BLT.N    ??SpeedCtrol_15
+    183              {
+    184                SpeedPid = StraightSpeed + IncreaseSpeed2;	
+   \   00000188   0x.... 0x....      LDR.W    R0,??DataTable4_6
+   \   0000018C   0x7800             LDRB     R0,[R0, #+0]
+   \   0000018E   0x.... 0x....      LDR.W    R1,??DataTable4_17
+   \   00000192   0x7809             LDRB     R1,[R1, #+0]
+   \   00000194   0x1808             ADDS     R0,R1,R0
+   \   00000196   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   0000019A   0x6008             STR      R0,[R1, #+0]
+   \   0000019C   0xE013             B.N      ??SpeedCtrol_13
+    185              }
+    186              else if(AllStraightCount > 5 && AllSmallSCount > 23)
+   \                     ??SpeedCtrol_15: (+1)
+   \   0000019E   0x.... 0x....      LDR.W    R0,??DataTable4_7
+   \   000001A2   0x7800             LDRB     R0,[R0, #+0]
+   \   000001A4   0x2806             CMP      R0,#+6
+   \   000001A6   0xDB0E             BLT.N    ??SpeedCtrol_13
+   \   000001A8   0x.... 0x....      LDR.W    R0,??DataTable4_8
+   \   000001AC   0x7800             LDRB     R0,[R0, #+0]
+   \   000001AE   0x2818             CMP      R0,#+24
+   \   000001B0   0xDB09             BLT.N    ??SpeedCtrol_13
+    187              {
+    188                SpeedPid = StraightSpeed + IncreaseSpeed3;	
+   \   000001B2   0x.... 0x....      LDR.W    R0,??DataTable4_6
+   \   000001B6   0x7800             LDRB     R0,[R0, #+0]
+   \   000001B8   0x.... 0x....      LDR.W    R1,??DataTable4_18
+   \   000001BC   0x7809             LDRB     R1,[R1, #+0]
+   \   000001BE   0x1808             ADDS     R0,R1,R0
+   \   000001C0   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   000001C4   0x6008             STR      R0,[R1, #+0]
+    189              }
+    190            }	
+    191          }
+   \                     ??SpeedCtrol_13: (+1)
+   \                     ??SpeedCtrol_2: (+1)
+   \   000001C6   0xBD01             POP      {R0,PC}          ;; return
+    192          
+    193          
+
+   \                                 In section .bss, align 4
+    194          int LineWeight[RowMax] = {0};
+   \                     LineWeight:
+   \   00000000                      DS8 400
+
+   \                                 In section .bss, align 4
+    195          int zaw_mode_last=0;;
+   \                     zaw_mode_last:
+   \   00000000                      DS8 4
+
+   \                                 In section .text, align 2, keep-with-next
+    196          int GetSteerError2(int start,int end,float midpos)
+    197          {
+   \                     GetSteerError2: (+1)
+   \   00000000   0xB538             PUSH     {R3-R5,LR}
+   \   00000002   0x0014             MOVS     R4,R2
+    198            char i = 0;
+   \   00000004   0x2100             MOVS     R1,#+0
+    199            int  Black_Sum = 0;
+   \   00000006   0x2300             MOVS     R3,#+0
+    200            int weightSum = 0;
+   \   00000008   0x2200             MOVS     R2,#+0
+    201            int TemError = 0.0;
+   \   0000000A   0x2000             MOVS     R0,#+0
+    202            
+    203            
+    204            
+    205            for(i = 0; i < RowMax-2; i++)    
+   \   0000000C   0x2500             MOVS     R5,#+0
+   \   0000000E   0x0029             MOVS     R1,R5
+   \   00000010   0xE023             B.N      ??GetSteerError2_0
+    206            {	
+    207              if(BlackLineData[i]>-ColumnMax&&BlackLineData[i]<2*ColumnMax &&BlackLineData[i] != 298)
+   \                     ??GetSteerError2_1: (+1)
+   \   00000012   0x.... 0x....      LDR.W    R0,??DataTable4_19
+   \   00000016   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   00000018   0xF850 0x0021      LDR      R0,[R0, R1, LSL #+2]
+   \   0000001C   0x3059             ADDS     R0,R0,#+89
+   \   0000001E   0xF5B0 0x7F86      CMP      R0,#+268
+   \   00000022   0xD819             BHI.N    ??GetSteerError2_2
+   \   00000024   0x.... 0x....      LDR.W    R0,??DataTable4_19
+   \   00000028   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   0000002A   0xF850 0x0021      LDR      R0,[R0, R1, LSL #+2]
+   \   0000002E   0xF5B0 0x7F95      CMP      R0,#+298
+   \   00000032   0xD011             BEQ.N    ??GetSteerError2_2
+    208              {  Black_Sum += BlackLineData[i]*LineWeight[i];
+   \   00000034   0x.... 0x....      LDR.W    R0,??DataTable4_19
+   \   00000038   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   0000003A   0xF850 0x0021      LDR      R0,[R0, R1, LSL #+2]
+   \   0000003E   0x.... 0x....      LDR.W    R5,??DataTable4_20
+   \   00000042   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   00000044   0xF855 0x5021      LDR      R5,[R5, R1, LSL #+2]
+   \   00000048   0xFB05 0x3300      MLA      R3,R5,R0,R3
+    209              weightSum += LineWeight[i];}
+   \   0000004C   0x.... 0x....      LDR.W    R0,??DataTable4_20
+   \   00000050   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   00000052   0xF850 0x0021      LDR      R0,[R0, R1, LSL #+2]
+   \   00000056   0x1882             ADDS     R2,R0,R2
+    210            }
+   \                     ??GetSteerError2_2: (+1)
+   \   00000058   0x1C49             ADDS     R1,R1,#+1
+   \                     ??GetSteerError2_0: (+1)
+   \   0000005A   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   0000005C   0x2962             CMP      R1,#+98
+   \   0000005E   0xDBD8             BLT.N    ??GetSteerError2_1
+    211            
+    212            if(zaw_mode_last!=0&&zaw_mode==0){zaw_mode=zaw_mode_last;zaw_mode_last=0;}
+   \   00000060   0x.... 0x....      LDR.W    R0,??DataTable4_21
+   \   00000064   0x6800             LDR      R0,[R0, #+0]
+   \   00000066   0x2800             CMP      R0,#+0
+   \   00000068   0xD00F             BEQ.N    ??GetSteerError2_3
+   \   0000006A   0x.... 0x....      LDR.W    R0,??DataTable4_22
+   \   0000006E   0x6800             LDR      R0,[R0, #+0]
+   \   00000070   0x2800             CMP      R0,#+0
+   \   00000072   0xD10A             BNE.N    ??GetSteerError2_3
+   \   00000074   0x.... 0x....      LDR.W    R0,??DataTable4_21
+   \   00000078   0x6800             LDR      R0,[R0, #+0]
+   \   0000007A   0x.... 0x....      LDR.W    R1,??DataTable4_22
+   \   0000007E   0x6008             STR      R0,[R1, #+0]
+   \   00000080   0x2000             MOVS     R0,#+0
+   \   00000082   0x.... 0x....      LDR.W    R1,??DataTable4_21
+   \   00000086   0x6008             STR      R0,[R1, #+0]
+   \   00000088   0xE005             B.N      ??GetSteerError2_4
+    213            else zaw_mode_last=zaw_mode;
+   \                     ??GetSteerError2_3: (+1)
+   \   0000008A   0x.... 0x....      LDR.W    R0,??DataTable4_22
+   \   0000008E   0x6800             LDR      R0,[R0, #+0]
+   \   00000090   0x.... 0x....      LDR.W    R1,??DataTable4_21
+   \   00000094   0x6008             STR      R0,[R1, #+0]
+    214            
+    215            TemError =(int)( Black_Sum/weightSum - (midpos+zaw_mode));
+   \                     ??GetSteerError2_4: (+1)
+   \   00000096   0xFB93 0xF0F2      SDIV     R0,R3,R2
+   \   0000009A   0x.... 0x....      BL       __aeabi_i2f
+   \   0000009E   0x0005             MOVS     R5,R0
+   \   000000A0   0x.... 0x....      LDR.W    R0,??DataTable4_22
+   \   000000A4   0x6800             LDR      R0,[R0, #+0]
+   \   000000A6   0x.... 0x....      BL       __aeabi_i2f
+   \   000000AA   0x0021             MOVS     R1,R4
+   \   000000AC   0x.... 0x....      BL       __aeabi_fadd
+   \   000000B0   0x0001             MOVS     R1,R0
+   \   000000B2   0x0028             MOVS     R0,R5
+   \   000000B4   0x.... 0x....      BL       __aeabi_fsub
+   \   000000B8   0x.... 0x....      BL       __aeabi_f2iz
+    216            
+    217            //	if(TemError > 40.0)
+    218            //	{
+    219            //		TemError = 40.0;
+    220            //	}
+    221            //	if(TemError < -40.0)
+    222            //	{
+    223            //		TemError = -40.0;	
+    224            //	}
+    225            
+    226            return TemError;
+   \   000000BC   0xBD32             POP      {R1,R4,R5,PC}    ;; return
+    227          }
+    228          //获取中心线偏差
+
+   \                                 In section .text, align 2, keep-with-next
+    229          float GetSteerError(unsigned char start,unsigned char end,float midpos)
+    230          {
+   \                     GetSteerError: (+1)
+   \   00000000   0xB5F8             PUSH     {R3-R7,LR}
+   \   00000002   0x0003             MOVS     R3,R0
+   \   00000004   0x0016             MOVS     R6,R2
+    231            unsigned char i=0;
+   \   00000006   0x2400             MOVS     R4,#+0
+    232            unsigned char iCount=0;
+   \   00000008   0x2700             MOVS     R7,#+0
+    233            unsigned int  Black_Sum=0;
+   \   0000000A   0x2200             MOVS     R2,#+0
+    234            float TemError = 0.0;
+   \   0000000C   0x2000             MOVS     R0,#+0
+    235            for(i = start,iCount = 0; i < end; i++,iCount++)    
+   \   0000000E   0x001C             MOVS     R4,R3
+   \   00000010   0x2300             MOVS     R3,#+0
+   \   00000012   0x001F             MOVS     R7,R3
+   \   00000014   0xE007             B.N      ??GetSteerError_0
+    236            {	
+    237              Black_Sum += BlackLineData[i];
+   \                     ??GetSteerError_1: (+1)
+   \   00000016   0x.... 0x....      LDR.W    R0,??DataTable4_19
+   \   0000001A   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \   0000001C   0xF850 0x0024      LDR      R0,[R0, R4, LSL #+2]
+   \   00000020   0x1882             ADDS     R2,R0,R2
+    238            }
+   \   00000022   0x1C64             ADDS     R4,R4,#+1
+   \   00000024   0x1C7F             ADDS     R7,R7,#+1
+   \                     ??GetSteerError_0: (+1)
+   \   00000026   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \   00000028   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   0000002A   0x428C             CMP      R4,R1
+   \   0000002C   0xD3F3             BCC.N    ??GetSteerError_1
+    239            TemError = 	Black_Sum*1.0/iCount - midpos;
+   \   0000002E   0x0010             MOVS     R0,R2
+   \   00000030   0x.... 0x....      BL       __aeabi_ui2d
+   \   00000034   0x2200             MOVS     R2,#+0
+   \   00000036   0x.... 0x....      LDR.W    R3,??DataTable4_23  ;; 0x3ff00000
+   \   0000003A   0x.... 0x....      BL       __aeabi_dmul
+   \   0000003E   0x0004             MOVS     R4,R0
+   \   00000040   0x000D             MOVS     R5,R1
+   \   00000042   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \   00000044   0x0038             MOVS     R0,R7
+   \   00000046   0x.... 0x....      BL       __aeabi_ui2d
+   \   0000004A   0x0002             MOVS     R2,R0
+   \   0000004C   0x000B             MOVS     R3,R1
+   \   0000004E   0x0020             MOVS     R0,R4
+   \   00000050   0x0029             MOVS     R1,R5
+   \   00000052   0x.... 0x....      BL       __aeabi_ddiv
+   \   00000056   0x0004             MOVS     R4,R0
+   \   00000058   0x000D             MOVS     R5,R1
+   \   0000005A   0x0030             MOVS     R0,R6
+   \   0000005C   0x.... 0x....      BL       __aeabi_f2d
+   \   00000060   0x0002             MOVS     R2,R0
+   \   00000062   0x000B             MOVS     R3,R1
+   \   00000064   0x0020             MOVS     R0,R4
+   \   00000066   0x0029             MOVS     R1,R5
+   \   00000068   0x.... 0x....      BL       __aeabi_dsub
+   \   0000006C   0x.... 0x....      BL       __aeabi_d2f
+    240            return TemError;
+   \   00000070   0xBDF2             POP      {R1,R4-R7,PC}    ;; return
+    241            
+    242          }
+    243          
+
+   \                                 In section .bss, align 4
+    244          int CrossingBegin = 0;
+   \                     CrossingBegin:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+    245          int CrossingCount = 0;
+   \                     CrossingCount:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+    246          int hx_direct=0,hx_over=0;
+   \                     hx_direct:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+   \                     hx_over:
+   \   00000000                      DS8 4
+    247          //舵机方向控制
+
+   \                                 In section .text, align 2, keep-with-next
+    248          void DirectionCtrol()//方向控制
+    249          {
+   \                     DirectionCtrol: (+1)
+   \   00000000   0xB5F8             PUSH     {R3-R7,LR}
+    250            int StartPos = RowMax - 15;
+   \   00000002   0x2455             MOVS     R4,#+85
+    251            int EndPos = RowMax-1;
+   \   00000004   0x2563             MOVS     R5,#+99
+    252            //int MidPos_ha;
+    253            // MidPos_ha=(int)MidPos_h; 
+    254            //MidPos = (BlackLineData[MidPos_ha] +(ColumnMax-RightBlack[MidPos_ha]- LeftBlack[MidPos_ha])/2)+4;
+    255           // MidPos =44;
+    256            //  if (IsCrossing &&g_Derict==1) MidPos +=15;else if (IsCrossing &&g_Derict==2) MidPos -=15;
+    257            int i = 0;
+   \   00000006   0x2200             MOVS     R2,#+0
+    258            // int CtrlWeight = FarWeight;//控制量
+    259            float temK =1.0;
+   \   00000008   0xF05F 0x567E      MOVS     R6,#+1065353216
+    260            //   if(IsCrossing){int MidPos = BlackLineData[RowMax-1] - LeftBlack[RowMax-1]*1.0/2 + (ColumnMax-RightBlack[RowMax-1])*1.0/2;}
+    261            
+    262            
+    263            
+    264            //if(StableNumbers > 5)
+    265            //	{caidan=1;
+    266            //      //  g_Derict
+    267            //		if(MidLineExcursion > 0)
+    268            //		{ 
+    269            //			SteerUpdatePWM(0,SteerPidCal(MidLineExcursion*1));
+    270            //                        //SteerUpdatePWM(0,50);
+    271            //		}
+    272            //		else if(MidLineExcursion < 0)
+    273            //		{if(MidLineExcursion<0){SteerUpdatePWM(0,SteerPidCal(MidLineExcursion*1));}
+    274            //                 
+    275            //			;
+    276            //                       // SteerUpdatePWM(0,50);
+    277            //		}
+    278            //		
+    279            //	}
+    280            
+    281            
+    282            Error=0.0;
+   \   0000000C   0x2000             MOVS     R0,#+0
+   \   0000000E   0x.... 0x....      LDR.W    R1,??DataTable4_24
+   \   00000012   0x6008             STR      R0,[R1, #+0]
+    283            
+    284            switch(RoadType)
+   \   00000014   0x.... 0x....      LDR.W    R0,??DataTable4_5
+   \   00000018   0xF990 0x0000      LDRSB    R0,[R0, #+0]
+   \   0000001C   0x2800             CMP      R0,#+0
+   \   0000001E   0xD00A             BEQ.N    ??DirectionCtrol_0
+   \   00000020   0x2801             CMP      R0,#+1
+   \   00000022   0xD033             BEQ.N    ??DirectionCtrol_1
+   \   00000024   0x2802             CMP      R0,#+2
+   \   00000026   0xD05C             BEQ.N    ??DirectionCtrol_2
+   \   00000028   0x2803             CMP      R0,#+3
+   \   0000002A   0xF000 0x8085      BEQ.W    ??DirectionCtrol_3
+   \   0000002E   0x2867             CMP      R0,#+103
+   \   00000030   0xF000 0x80AD      BEQ.W    ??DirectionCtrol_4
+   \   00000034   0xE0D4             B.N      ??DirectionCtrol_5
+    285            {					   
+    286            case 0://直
+    287              Foresight = StraightFS;//Foresight--摄像头采集的远方特征
+   \                     ??DirectionCtrol_0: (+1)
+   \   00000036   0x.... 0x....      LDR.W    R0,??DataTable4_25
+   \   0000003A   0x6800             LDR      R0,[R0, #+0]
+   \   0000003C   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   00000040   0x6008             STR      R0,[R1, #+0]
+    288              if(Foresight > StableNumbers-2)Foresight=StableNumbers-1;
+   \   00000042   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   00000046   0x6800             LDR      R0,[R0, #+0]
+   \   00000048   0x1E80             SUBS     R0,R0,#+2
+   \   0000004A   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   0000004E   0x6809             LDR      R1,[R1, #+0]
+   \   00000050   0x4288             CMP      R0,R1
+   \   00000052   0xDA06             BGE.N    ??DirectionCtrol_6
+   \   00000054   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   00000058   0x6800             LDR      R0,[R0, #+0]
+   \   0000005A   0x1E40             SUBS     R0,R0,#+1
+   \   0000005C   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   00000060   0x6008             STR      R0,[R1, #+0]
+    289              k = StraightK;
+   \                     ??DirectionCtrol_6: (+1)
+   \   00000062   0x.... 0x....      LDR.W    R0,??DataTable4_27
+   \   00000066   0x6800             LDR      R0,[R0, #+0]
+   \   00000068   0x.... 0x....      LDR.W    R1,??DataTable4_28
+   \   0000006C   0x6008             STR      R0,[R1, #+0]
+    290              StartPos = RowMax - Foresight;//+1
+   \   0000006E   0x.... 0x....      LDR.W    R0,??DataTable4_26
+   \   00000072   0x6800             LDR      R0,[R0, #+0]
+   \   00000074   0xF1D0 0x0464      RSBS     R4,R0,#+100
+    291              EndPos = StraightEnd; //-0
+   \   00000078   0x.... 0x....      LDR.W    R0,??DataTable4_29
+   \   0000007C   0x7805             LDRB     R5,[R0, #+0]
+    292              
+    293              
+    294              LastRoadType = RoadType;//
+   \   0000007E   0x.... 0x....      LDR.W    R0,??DataTable4_5
+   \   00000082   0x7800             LDRB     R0,[R0, #+0]
+   \   00000084   0x.... 0x....      LDR.W    R1,??DataTable4_30
+   \   00000088   0x7008             STRB     R0,[R1, #+0]
+    295              break;
+   \   0000008A   0xE0BE             B.N      ??DirectionCtrol_7
+    296            case 1://小s
+    297              Foresight = SmallSFS;
+   \                     ??DirectionCtrol_1: (+1)
+   \   0000008C   0x.... 0x....      LDR.W    R0,??DataTable4_31
+   \   00000090   0x6800             LDR      R0,[R0, #+0]
+   \   00000092   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   00000096   0x6008             STR      R0,[R1, #+0]
+    298              k = SmallSK;
+   \   00000098   0x.... 0x....      LDR.W    R0,??DataTable4_32
+   \   0000009C   0x6800             LDR      R0,[R0, #+0]
+   \   0000009E   0x.... 0x....      LDR.W    R1,??DataTable4_28
+   \   000000A2   0x6008             STR      R0,[R1, #+0]
+    299              if(Foresight > StableNumbers-2)Foresight=StableNumbers-1;
+   \   000000A4   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   000000A8   0x6800             LDR      R0,[R0, #+0]
+   \   000000AA   0x1E80             SUBS     R0,R0,#+2
+   \   000000AC   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   000000B0   0x6809             LDR      R1,[R1, #+0]
+   \   000000B2   0x4288             CMP      R0,R1
+   \   000000B4   0xDA06             BGE.N    ??DirectionCtrol_8
+   \   000000B6   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   000000BA   0x6800             LDR      R0,[R0, #+0]
+   \   000000BC   0x1E40             SUBS     R0,R0,#+1
+   \   000000BE   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   000000C2   0x6008             STR      R0,[R1, #+0]
+    300              StartPos = RowMax - Foresight;
+   \                     ??DirectionCtrol_8: (+1)
+   \   000000C4   0x.... 0x....      LDR.W    R0,??DataTable4_26
+   \   000000C8   0x6800             LDR      R0,[R0, #+0]
+   \   000000CA   0xF1D0 0x0464      RSBS     R4,R0,#+100
+    301              EndPos = SmallSEnd;
+   \   000000CE   0x.... 0x....      LDR.W    R0,??DataTable4_33
+   \   000000D2   0x7805             LDRB     R5,[R0, #+0]
+    302              
+    303              
+    304              
+    305              LastRoadType=RoadType;//	
+   \   000000D4   0x.... 0x....      LDR.W    R0,??DataTable4_5
+   \   000000D8   0x7800             LDRB     R0,[R0, #+0]
+   \   000000DA   0x.... 0x....      LDR.W    R1,??DataTable4_30
+   \   000000DE   0x7008             STRB     R0,[R1, #+0]
+    306              break;
+   \   000000E0   0xE093             B.N      ??DirectionCtrol_7
+    307            case 2://大S
+    308              Foresight = BigFS;
+   \                     ??DirectionCtrol_2: (+1)
+   \   000000E2   0x.... 0x....      LDR.W    R0,??DataTable4_34
+   \   000000E6   0x6800             LDR      R0,[R0, #+0]
+   \   000000E8   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   000000EC   0x6008             STR      R0,[R1, #+0]
+    309              if(Foresight > StableNumbers-2)Foresight=StableNumbers-1;
+   \   000000EE   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   000000F2   0x6800             LDR      R0,[R0, #+0]
+   \   000000F4   0x1E80             SUBS     R0,R0,#+2
+   \   000000F6   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   000000FA   0x6809             LDR      R1,[R1, #+0]
+   \   000000FC   0x4288             CMP      R0,R1
+   \   000000FE   0xDA06             BGE.N    ??DirectionCtrol_9
+   \   00000100   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   00000104   0x6800             LDR      R0,[R0, #+0]
+   \   00000106   0x1E40             SUBS     R0,R0,#+1
+   \   00000108   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   0000010C   0x6008             STR      R0,[R1, #+0]
+    310              k = BigSK;
+   \                     ??DirectionCtrol_9: (+1)
+   \   0000010E   0x.... 0x....      LDR.W    R0,??DataTable4_35
+   \   00000112   0x6800             LDR      R0,[R0, #+0]
+   \   00000114   0x.... 0x....      LDR.W    R1,??DataTable4_28
+   \   00000118   0x6008             STR      R0,[R1, #+0]
+    311              
+    312              //			if(StableNumbers < 30 && CanSpeedUp)
+    313              //			{
+    314              //				k += 0.3;	
+    315              //			}
+    316              StartPos = RowMax - Foresight;
+   \   0000011A   0x.... 0x....      LDR.W    R0,??DataTable4_26
+   \   0000011E   0x6800             LDR      R0,[R0, #+0]
+   \   00000120   0xF1D0 0x0464      RSBS     R4,R0,#+100
+    317              EndPos = BigSEnd;
+   \   00000124   0x.... 0x....      LDR.W    R0,??DataTable4_36
+   \   00000128   0x7805             LDRB     R5,[R0, #+0]
+    318              
+    319              //			switch(LastRoadType)
+    320              //			{
+    321              //				case 0:
+    322              //					k = k + 0.5;
+    323              //					break;
+    324              //				case 1:
+    325              ////					Foresight = SmallSFS;
+    326              ////					if(Foresight > StableNumbers+CompensateCount-11)Foresight=StableNumbers+CompensateCount-11;
+    327              ////					
+    328              //					k = SmallSFS + 0.3;
+    329              //					break;
+    330              //				default:
+    331              //					break;
+    332              //			}
+    333              LastRoadType=RoadType;//
+   \   0000012A   0x.... 0x....      LDR.W    R0,??DataTable4_5
+   \   0000012E   0x7800             LDRB     R0,[R0, #+0]
+   \   00000130   0x.... 0x....      LDR.W    R1,??DataTable4_30
+   \   00000134   0x7008             STRB     R0,[R1, #+0]
+    334              break;
+   \   00000136   0xE068             B.N      ??DirectionCtrol_7
+    335            case 3://急弯
+    336              Foresight = BendFS;//17
+   \                     ??DirectionCtrol_3: (+1)
+   \   00000138   0x.... 0x....      LDR.W    R0,??DataTable4_37
+   \   0000013C   0x6800             LDR      R0,[R0, #+0]
+   \   0000013E   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   00000142   0x6008             STR      R0,[R1, #+0]
+    337              if(Foresight > StableNumbers-2)Foresight=StableNumbers-1;
+   \   00000144   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   00000148   0x6800             LDR      R0,[R0, #+0]
+   \   0000014A   0x1E80             SUBS     R0,R0,#+2
+   \   0000014C   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   00000150   0x6809             LDR      R1,[R1, #+0]
+   \   00000152   0x4288             CMP      R0,R1
+   \   00000154   0xDA06             BGE.N    ??DirectionCtrol_10
+   \   00000156   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   0000015A   0x6800             LDR      R0,[R0, #+0]
+   \   0000015C   0x1E40             SUBS     R0,R0,#+1
+   \   0000015E   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   00000162   0x6008             STR      R0,[R1, #+0]
+    338              k = BendK;
+   \                     ??DirectionCtrol_10: (+1)
+   \   00000164   0x.... 0x....      LDR.W    R0,??DataTable4_38
+   \   00000168   0x6800             LDR      R0,[R0, #+0]
+   \   0000016A   0x.... 0x....      LDR.W    R1,??DataTable4_28
+   \   0000016E   0x6008             STR      R0,[R1, #+0]
+    339              //MidPos-=15;
+    340              //			if(StableNumbers < 30 && CanSpeedUp )
+    341              //			{
+    342              //				k += 0.4;	
+    343              //			}
+    344              StartPos = RowMax - Foresight;
+   \   00000170   0x.... 0x....      LDR.W    R0,??DataTable4_26
+   \   00000174   0x6800             LDR      R0,[R0, #+0]
+   \   00000176   0xF1D0 0x0464      RSBS     R4,R0,#+100
+    345              EndPos = BendEnd;
+   \   0000017A   0x.... 0x....      LDR.W    R0,??DataTable4_39
+   \   0000017E   0x7805             LDRB     R5,[R0, #+0]
+    346              
+    347              LastRoadType=RoadType;//			 
+   \   00000180   0x.... 0x....      LDR.W    R0,??DataTable4_5
+   \   00000184   0x7800             LDRB     R0,[R0, #+0]
+   \   00000186   0x.... 0x....      LDR.W    R1,??DataTable4_30
+   \   0000018A   0x7008             STRB     R0,[R1, #+0]
+    348              break;
+   \   0000018C   0xE03D             B.N      ??DirectionCtrol_7
+    349            case 103:
+    350              Foresight = StraightToBendFS;
+   \                     ??DirectionCtrol_4: (+1)
+   \   0000018E   0x.... 0x....      LDR.W    R0,??DataTable4_40
+   \   00000192   0x6800             LDR      R0,[R0, #+0]
+   \   00000194   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   00000198   0x6008             STR      R0,[R1, #+0]
+    351              if(Foresight > StableNumbers-1)Foresight=StableNumbers-1;
+   \   0000019A   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   0000019E   0x6800             LDR      R0,[R0, #+0]
+   \   000001A0   0x1E40             SUBS     R0,R0,#+1
+   \   000001A2   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   000001A6   0x6809             LDR      R1,[R1, #+0]
+   \   000001A8   0x4288             CMP      R0,R1
+   \   000001AA   0xDA06             BGE.N    ??DirectionCtrol_11
+   \   000001AC   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   000001B0   0x6800             LDR      R0,[R0, #+0]
+   \   000001B2   0x1E40             SUBS     R0,R0,#+1
+   \   000001B4   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   000001B8   0x6008             STR      R0,[R1, #+0]
+    352              StartPos = RowMax - Foresight+1;
+   \                     ??DirectionCtrol_11: (+1)
+   \   000001BA   0x.... 0x....      LDR.W    R0,??DataTable4_26
+   \   000001BE   0x6800             LDR      R0,[R0, #+0]
+   \   000001C0   0xF1D0 0x0465      RSBS     R4,R0,#+101
+    353              EndPos = StraightToBenEnd;
+   \   000001C4   0x.... 0x....      LDR.W    R0,??DataTable4_41
+   \   000001C8   0x7805             LDRB     R5,[R0, #+0]
+    354              LastRoadType = 103;
+   \   000001CA   0x2067             MOVS     R0,#+103
+   \   000001CC   0x.... 0x....      LDR.W    R1,??DataTable4_30
+   \   000001D0   0x7008             STRB     R0,[R1, #+0]
+    355              
+    356              k = StraightToBendK;
+   \   000001D2   0x.... 0x....      LDR.W    R0,??DataTable4_42
+   \   000001D6   0x6800             LDR      R0,[R0, #+0]
+   \   000001D8   0x.... 0x....      LDR.W    R1,??DataTable4_28
+   \   000001DC   0x6008             STR      R0,[R1, #+0]
+    357              break;
+   \   000001DE   0xE014             B.N      ??DirectionCtrol_7
+    358            default:
+    359              k = CommonK;
+   \                     ??DirectionCtrol_5: (+1)
+   \   000001E0   0x.... 0x....      LDR.W    R0,??DataTable4_43
+   \   000001E4   0x6800             LDR      R0,[R0, #+0]
+   \   000001E6   0x.... 0x....      LDR.W    R1,??DataTable4_28
+   \   000001EA   0x6008             STR      R0,[R1, #+0]
+    360              Foresight = StableNumbers-2;;
+   \   000001EC   0x.... 0x....      LDR.W    R0,??DataTable4_3
+   \   000001F0   0x6800             LDR      R0,[R0, #+0]
+   \   000001F2   0x1E80             SUBS     R0,R0,#+2
+   \   000001F4   0x.... 0x....      LDR.W    R1,??DataTable4_26
+   \   000001F8   0x6008             STR      R0,[R1, #+0]
+    361              StartPos = RowMax - Foresight;
+   \   000001FA   0x.... 0x....      LDR.W    R0,??DataTable4_26
+   \   000001FE   0x6800             LDR      R0,[R0, #+0]
+   \   00000200   0xF1D0 0x0464      RSBS     R4,R0,#+100
+    362              EndPos = CommonEnd;
+   \   00000204   0x.... 0x....      LDR.W    R0,??DataTable4_44
+   \   00000208   0x7805             LDRB     R5,[R0, #+0]
+    363              
+    364              break;
+    365            }
+    366            //if(IsCrossing)  {k = 1.5;}
+    367            //if(IsCrossing && MidPos>35)  {   MidPos -= 20; }
+    368            
+    369            
+    370            
+    371            if (StableNumbers>60&&0)
+    372              {
+    373                
+    374                
+    375                int qz_a,qz_b,qz_c;
+    376                qz_a=(RowMax - (StableNumbers)*3/4);
+    377                qz_b=(RowMax - (StableNumbers)/2);
+    378                qz_c=(RowMax - (StableNumbers)/4);
+    379                
+    380                for (i = RowMax-1;i > 0;i--)
+    381                {
+    382                  if (i > RowMax - (StableNumbers-1))
+    383                  {
+    384                    if (i >= StartPos && i <=qz_c)
+    385                    {
+    386                      
+    387                      LineWeight[i]=0;
+    388                      
+    389                    }
+    390                    else if (i > qz_a && i <= qz_b)
+    391                    {
+    392                      
+    393                      
+    394                      LineWeight[i]=25;
+    395                      
+    396                    }
+    397                    else if (i > qz_b && i <= qz_a)
+    398                    {
+    399                      
+    400                      LineWeight[i]=20;	
+    401                      
+    402                    }
+    403                    else   if (i > qz_a&& i <= EndPos)
+    404                    {
+    405                      
+    406                      
+    407                      LineWeight[i]=15        ;
+    408                      
+    409                    }
+    410                    
+    411                    else
+    412                    {
+    413                      LineWeight[i]=0;
+    414                    }
+    415                  }
+    416                  else
+    417                  {
+    418                    LineWeight[i]=0;
+    419                  }
+    420                }
+    421                
+    422              }
+    423            else if (1)
+    424            {
+    425              
+    426              
+    427              int qz_a,qz_b,qz_c;
+    428              qz_a=(RowMax - (StableNumbers-1)*3/4);
+   \                     ??DirectionCtrol_7: (+1)
+   \   0000020A   0x....             LDR.N    R0,??DataTable4_3
+   \   0000020C   0x6800             LDR      R0,[R0, #+0]
+   \   0000020E   0x1E40             SUBS     R0,R0,#+1
+   \   00000210   0x2103             MOVS     R1,#+3
+   \   00000212   0x4348             MULS     R0,R1,R0
+   \   00000214   0x2104             MOVS     R1,#+4
+   \   00000216   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   0000021A   0xF1D0 0x0064      RSBS     R0,R0,#+100
+    429              qz_b=(RowMax - (StableNumbers-1)/2);
+   \   0000021E   0x....             LDR.N    R1,??DataTable4_3
+   \   00000220   0x6809             LDR      R1,[R1, #+0]
+   \   00000222   0x1E49             SUBS     R1,R1,#+1
+   \   00000224   0x2202             MOVS     R2,#+2
+   \   00000226   0xFB91 0xF1F2      SDIV     R1,R1,R2
+   \   0000022A   0xF1D1 0x0164      RSBS     R1,R1,#+100
+    430              qz_c=(RowMax - (StableNumbers-1)/4);
+   \   0000022E   0x....             LDR.N    R2,??DataTable4_3
+   \   00000230   0x6812             LDR      R2,[R2, #+0]
+   \   00000232   0x1E52             SUBS     R2,R2,#+1
+   \   00000234   0x2304             MOVS     R3,#+4
+   \   00000236   0xFB92 0xF2F3      SDIV     R2,R2,R3
+   \   0000023A   0xF1D2 0x0364      RSBS     R3,R2,#+100
+    431              
+    432              for (i = RowMax-1;i > 0;i--)
+   \   0000023E   0x2263             MOVS     R2,#+99
+   \   00000240   0xE004             B.N      ??DirectionCtrol_12
+    433              {
+    434                if (i > RowMax - (StableNumbers-1))
+    435                {
+    436                  if (i >= StartPos && i <=qz_c)
+    437                  {
+    438                    
+    439                    LineWeight[i]=50;
+    440                    
+    441                  }
+    442                  else if (i > qz_a && i <= qz_b)
+    443                  {
+    444                    
+    445                    
+    446                    LineWeight[i]=25;
+    447                    
+    448                  }
+    449                  else if (i > qz_b && i <= qz_a)
+    450                  {
+    451                    
+    452                    LineWeight[i]=20;	
+    453                    
+    454                  }
+    455                  else   if (i > qz_a&& i <= EndPos)
+    456                  {
+    457                    
+    458                    
+    459                    LineWeight[i]=60;
+    460                    
+    461                  }
+    462                  
+    463                  else
+    464                  {
+    465                    LineWeight[i]=0;
+    466                  }
+    467                }
+    468                else
+    469                {
+    470                  LineWeight[i]=0;
+   \                     ??DirectionCtrol_13: (+1)
+   \   00000242   0x2600             MOVS     R6,#+0
+   \   00000244   0x....             LDR.N    R7,??DataTable4_20
+   \   00000246   0xF847 0x6022      STR      R6,[R7, R2, LSL #+2]
+    471                }
+   \                     ??DirectionCtrol_14: (+1)
+   \   0000024A   0x1E52             SUBS     R2,R2,#+1
+   \                     ??DirectionCtrol_12: (+1)
+   \   0000024C   0x2A01             CMP      R2,#+1
+   \   0000024E   0xDB2F             BLT.N    ??DirectionCtrol_15
+   \   00000250   0x....             LDR.N    R6,??DataTable4_3
+   \   00000252   0x6836             LDR      R6,[R6, #+0]
+   \   00000254   0xF1D6 0x0664      RSBS     R6,R6,#+100
+   \   00000258   0x1C76             ADDS     R6,R6,#+1
+   \   0000025A   0x4296             CMP      R6,R2
+   \   0000025C   0xDAF1             BGE.N    ??DirectionCtrol_13
+   \   0000025E   0x42A2             CMP      R2,R4
+   \   00000260   0xDB06             BLT.N    ??DirectionCtrol_16
+   \   00000262   0x4293             CMP      R3,R2
+   \   00000264   0xDB04             BLT.N    ??DirectionCtrol_16
+   \   00000266   0x2632             MOVS     R6,#+50
+   \   00000268   0x....             LDR.N    R7,??DataTable4_20
+   \   0000026A   0xF847 0x6022      STR      R6,[R7, R2, LSL #+2]
+   \   0000026E   0xE7EC             B.N      ??DirectionCtrol_14
+   \                     ??DirectionCtrol_16: (+1)
+   \   00000270   0x4290             CMP      R0,R2
+   \   00000272   0xDA06             BGE.N    ??DirectionCtrol_17
+   \   00000274   0x4291             CMP      R1,R2
+   \   00000276   0xDB04             BLT.N    ??DirectionCtrol_17
+   \   00000278   0x2619             MOVS     R6,#+25
+   \   0000027A   0x....             LDR.N    R7,??DataTable4_20
+   \   0000027C   0xF847 0x6022      STR      R6,[R7, R2, LSL #+2]
+   \   00000280   0xE7E3             B.N      ??DirectionCtrol_14
+   \                     ??DirectionCtrol_17: (+1)
+   \   00000282   0x4291             CMP      R1,R2
+   \   00000284   0xDA06             BGE.N    ??DirectionCtrol_18
+   \   00000286   0x4290             CMP      R0,R2
+   \   00000288   0xDB04             BLT.N    ??DirectionCtrol_18
+   \   0000028A   0x2614             MOVS     R6,#+20
+   \   0000028C   0x....             LDR.N    R7,??DataTable4_20
+   \   0000028E   0xF847 0x6022      STR      R6,[R7, R2, LSL #+2]
+   \   00000292   0xE7DA             B.N      ??DirectionCtrol_14
+   \                     ??DirectionCtrol_18: (+1)
+   \   00000294   0x4290             CMP      R0,R2
+   \   00000296   0xDA06             BGE.N    ??DirectionCtrol_19
+   \   00000298   0x4295             CMP      R5,R2
+   \   0000029A   0xDB04             BLT.N    ??DirectionCtrol_19
+   \   0000029C   0x263C             MOVS     R6,#+60
+   \   0000029E   0x....             LDR.N    R7,??DataTable4_20
+   \   000002A0   0xF847 0x6022      STR      R6,[R7, R2, LSL #+2]
+   \   000002A4   0xE7D1             B.N      ??DirectionCtrol_14
+   \                     ??DirectionCtrol_19: (+1)
+   \   000002A6   0x2600             MOVS     R6,#+0
+   \   000002A8   0x....             LDR.N    R7,??DataTable4_20
+   \   000002AA   0xF847 0x6022      STR      R6,[R7, R2, LSL #+2]
+   \   000002AE   0xE7CC             B.N      ??DirectionCtrol_14
+    472              }
+    473              
+    474            }
+    475            //  
+    476            //  if(hx_i<2)
+    477            //  {hx_direct=0;
+    478            //    hx_over=0;
+    479            //    if(mode1>mode2)//左转
+    480            //    {
+    481            //    hx_direct=-1;
+    482            //    
+    483            //    }
+    484            //    else if (mode1<mode2) //右转
+    485            //    {
+    486            //    hx_direct=1;
+    487            //    
+    488            //    }
+    489            //  
+    490            //  
+    491            //  
+    492            //  }
+    493            
+    494            //    if(hx_i<2&&mode4<10) {hx=0;hx_i=10000;}
+    495            
+    496            //  if(hx&&mode4>20) {StableNumbers=mode4-8;k=0.6;}
+    497            Error = GetSteerError2(StartPos,EndPos,MidPos);
+   \                     ??DirectionCtrol_15: (+1)
+   \   000002B0   0x....             LDR.N    R0,??DataTable4_45
+   \   000002B2   0x6800             LDR      R0,[R0, #+0]
+   \   000002B4   0x.... 0x....      BL       __aeabi_i2f
+   \   000002B8   0x0002             MOVS     R2,R0
+   \   000002BA   0x0029             MOVS     R1,R5
+   \   000002BC   0x0020             MOVS     R0,R4
+   \   000002BE   0x.... 0x....      BL       GetSteerError2
+   \   000002C2   0x....             LDR.N    R1,??DataTable4_24
+   \   000002C4   0x6008             STR      R0,[R1, #+0]
+    498            Errora=Error;
+   \   000002C6   0x....             LDR.N    R0,??DataTable4_24
+   \   000002C8   0x6800             LDR      R0,[R0, #+0]
+   \   000002CA   0x....             LDR.N    R1,??DataTable4_46
+   \   000002CC   0x6008             STR      R0,[R1, #+0]
+    499            int StableNumbers_max;
+    500           if(hx) StableNumbers_max=StableNumbers;
+   \   000002CE   0x....             LDR.N    R0,??DataTable4_47
+   \   000002D0   0x6800             LDR      R0,[R0, #+0]
+   \   000002D2   0x2800             CMP      R0,#+0
+   \   000002D4   0xD002             BEQ.N    ??DirectionCtrol_20
+   \   000002D6   0x....             LDR.N    R0,??DataTable4_3
+   \   000002D8   0x6800             LDR      R0,[R0, #+0]
+   \   000002DA   0xE001             B.N      ??DirectionCtrol_21
+    501           else StableNumbers_max=BlackEndMax;
+   \                     ??DirectionCtrol_20: (+1)
+   \   000002DC   0x....             LDR.N    R0,??DataTable4_48
+   \   000002DE   0x6800             LDR      R0,[R0, #+0]
+    502           // if(mid_line_count<4)StableNumbers_max=MAX(StableNumbers_max,BlackEndMax);
+    503            //StableNumbers_max=MAX(StableNumbers_max,BlackEndR);
+    504            
+    505            
+    506            //  if(StableNumbers_max >= 75)
+    507            //	{
+    508            //		temK = 1.0;
+    509            //	}
+    510            //	else if(StableNumbers_max >= 50)
+    511            //	{
+    512            //		temK = 1.4;
+    513            //	}
+    514            //	else if(StableNumbers_max >= 40)
+    515            //	{
+    516            //		temK = 1.6;	
+    517            //	}
+    518            //        else if(StableNumbers_max >= 30)
+    519            //	{
+    520            //		temK = 1.8;	
+    521            //	}
+    522            //        else if(StableNumbers_max >= 20)
+    523            //	{
+    524            //		temK = 2;	
+    525            //	}
+    526            //        else 
+    527            //	{
+    528            //		temK = 2.5;	
+    529            //	}
+    530            if(Error<0)
+   \                     ??DirectionCtrol_21: (+1)
+   \   000002E0   0x....             LDR.N    R1,??DataTable4_24
+   \   000002E2   0x6809             LDR      R1,[R1, #+0]
+   \   000002E4   0x2900             CMP      R1,#+0
+   \   000002E6   0xD52B             BPL.N    ??DirectionCtrol_22
+    531            {
+    532              if(StableNumbers_max > RowMax*0.95)
+   \   000002E8   0x2860             CMP      R0,#+96
+   \   000002EA   0xDB01             BLT.N    ??DirectionCtrol_23
+    533              {
+    534                temK = 1.1;
+   \   000002EC   0x....             LDR.N    R6,??DataTable4_49  ;; 0x3f8ccccd
+   \   000002EE   0xE01C             B.N      ??DirectionCtrol_24
+    535              }
+    536              else if(StableNumbers_max >= RowMax*0.80)
+   \                     ??DirectionCtrol_23: (+1)
+   \   000002F0   0x2850             CMP      R0,#+80
+   \   000002F2   0xDB01             BLT.N    ??DirectionCtrol_25
+    537              {
+    538                temK = 1.1;
+   \   000002F4   0x....             LDR.N    R6,??DataTable4_49  ;; 0x3f8ccccd
+   \   000002F6   0xE018             B.N      ??DirectionCtrol_24
+    539              }
+    540              else if(StableNumbers_max >= RowMax*0.70)
+   \                     ??DirectionCtrol_25: (+1)
+   \   000002F8   0x2846             CMP      R0,#+70
+   \   000002FA   0xDB01             BLT.N    ??DirectionCtrol_26
+    541              {
+    542                temK = 1.4;
+   \   000002FC   0x....             LDR.N    R6,??DataTable4_50  ;; 0x3fb33333
+   \   000002FE   0xE014             B.N      ??DirectionCtrol_24
+    543              }
+    544              else if(StableNumbers_max >= RowMax*0.60)
+   \                     ??DirectionCtrol_26: (+1)
+   \   00000300   0x283C             CMP      R0,#+60
+   \   00000302   0xDB01             BLT.N    ??DirectionCtrol_27
+    545              {
+    546                temK = 1.8;
+   \   00000304   0x....             LDR.N    R6,??DataTable4_51  ;; 0x3fe66666
+   \   00000306   0xE010             B.N      ??DirectionCtrol_24
+    547              }
+    548              else if(StableNumbers_max >= RowMax*0.50)
+   \                     ??DirectionCtrol_27: (+1)
+   \   00000308   0x2832             CMP      R0,#+50
+   \   0000030A   0xDB01             BLT.N    ??DirectionCtrol_28
+    549              {
+    550                temK = 2.2;
+   \   0000030C   0x....             LDR.N    R6,??DataTable4_52  ;; 0x400ccccd
+   \   0000030E   0xE00C             B.N      ??DirectionCtrol_24
+    551              }
+    552              else if(StableNumbers_max >= RowMax*0.40)
+   \                     ??DirectionCtrol_28: (+1)
+   \   00000310   0x2828             CMP      R0,#+40
+   \   00000312   0xDB01             BLT.N    ??DirectionCtrol_29
+    553              {
+    554                temK =2.5;	
+   \   00000314   0x....             LDR.N    R6,??DataTable4_53  ;; 0x40200000
+   \   00000316   0xE008             B.N      ??DirectionCtrol_24
+    555              }
+    556              else if(StableNumbers_max >= RowMax*0.30)
+   \                     ??DirectionCtrol_29: (+1)
+   \   00000318   0x281E             CMP      R0,#+30
+   \   0000031A   0xDB01             BLT.N    ??DirectionCtrol_30
+    557              {
+    558                temK = 2.9;	
+   \   0000031C   0x....             LDR.N    R6,??DataTable4_54  ;; 0x4039999a
+   \   0000031E   0xE004             B.N      ??DirectionCtrol_24
+    559              }
+    560              else if(StableNumbers_max >= RowMax*0.20)
+   \                     ??DirectionCtrol_30: (+1)
+   \   00000320   0x2814             CMP      R0,#+20
+   \   00000322   0xDB01             BLT.N    ??DirectionCtrol_31
+    561              {
+    562                temK = 3.3;	
+   \   00000324   0x....             LDR.N    R6,??DataTable4_55  ;; 0x40533333
+   \   00000326   0xE000             B.N      ??DirectionCtrol_24
+    563              }
+    564              else 
+    565              {
+    566                temK = 3.3;	
+   \                     ??DirectionCtrol_31: (+1)
+   \   00000328   0x....             LDR.N    R6,??DataTable4_55  ;; 0x40533333
+    567              }
+    568             
+    569          //if(StableNumbers_max<=RowMax*0.7) 
+    570            temK*=1.1; 
+   \                     ??DirectionCtrol_24: (+1)
+   \   0000032A   0x0030             MOVS     R0,R6
+   \   0000032C   0x.... 0x....      BL       __aeabi_f2d
+   \   00000330   0x....             LDR.N    R2,??DataTable4_56  ;; 0x9999999a
+   \   00000332   0x....             LDR.N    R3,??DataTable4_57  ;; 0x3ff19999
+   \   00000334   0x.... 0x....      BL       __aeabi_dmul
+   \   00000338   0x.... 0x....      BL       __aeabi_d2f
+   \   0000033C   0x0006             MOVS     R6,R0
+   \   0000033E   0xE039             B.N      ??DirectionCtrol_32
+    571            }
+    572            else
+    573            {
+    574                  if(StableNumbers_max > RowMax*0.95)
+   \                     ??DirectionCtrol_22: (+1)
+   \   00000340   0x2860             CMP      R0,#+96
+   \   00000342   0xDB01             BLT.N    ??DirectionCtrol_33
+    575              {
+    576                temK =1.1;
+   \   00000344   0x....             LDR.N    R6,??DataTable4_49  ;; 0x3f8ccccd
+   \   00000346   0xE01C             B.N      ??DirectionCtrol_34
+    577              }
+    578              else if(StableNumbers_max >= RowMax*0.80)
+   \                     ??DirectionCtrol_33: (+1)
+   \   00000348   0x2850             CMP      R0,#+80
+   \   0000034A   0xDB01             BLT.N    ??DirectionCtrol_35
+    579              {
+    580                temK = 1.1;
+   \   0000034C   0x....             LDR.N    R6,??DataTable4_49  ;; 0x3f8ccccd
+   \   0000034E   0xE018             B.N      ??DirectionCtrol_34
+    581              }
+    582              else if(StableNumbers_max >= RowMax*0.70)
+   \                     ??DirectionCtrol_35: (+1)
+   \   00000350   0x2846             CMP      R0,#+70
+   \   00000352   0xDB01             BLT.N    ??DirectionCtrol_36
+    583              {
+    584                temK = 1.4;
+   \   00000354   0x....             LDR.N    R6,??DataTable4_50  ;; 0x3fb33333
+   \   00000356   0xE014             B.N      ??DirectionCtrol_34
+    585              }
+    586              else if(StableNumbers_max >= RowMax*0.60)
+   \                     ??DirectionCtrol_36: (+1)
+   \   00000358   0x283C             CMP      R0,#+60
+   \   0000035A   0xDB01             BLT.N    ??DirectionCtrol_37
+    587              {
+    588                temK = 1.8;
+   \   0000035C   0x....             LDR.N    R6,??DataTable4_51  ;; 0x3fe66666
+   \   0000035E   0xE010             B.N      ??DirectionCtrol_34
+    589              }
+    590              else if(StableNumbers_max >= RowMax*0.50)
+   \                     ??DirectionCtrol_37: (+1)
+   \   00000360   0x2832             CMP      R0,#+50
+   \   00000362   0xDB01             BLT.N    ??DirectionCtrol_38
+    591              {
+    592                temK = 2.2;
+   \   00000364   0x....             LDR.N    R6,??DataTable4_52  ;; 0x400ccccd
+   \   00000366   0xE00C             B.N      ??DirectionCtrol_34
+    593              }
+    594              else if(StableNumbers_max >= RowMax*0.40)
+   \                     ??DirectionCtrol_38: (+1)
+   \   00000368   0x2828             CMP      R0,#+40
+   \   0000036A   0xDB01             BLT.N    ??DirectionCtrol_39
+    595              {
+    596                temK =2.5;	
+   \   0000036C   0x....             LDR.N    R6,??DataTable4_53  ;; 0x40200000
+   \   0000036E   0xE008             B.N      ??DirectionCtrol_34
+    597              }
+    598              else if(StableNumbers_max >= RowMax*0.30)
+   \                     ??DirectionCtrol_39: (+1)
+   \   00000370   0x281E             CMP      R0,#+30
+   \   00000372   0xDB01             BLT.N    ??DirectionCtrol_40
+    599              {
+    600                temK =2.9;	
+   \   00000374   0x....             LDR.N    R6,??DataTable4_54  ;; 0x4039999a
+   \   00000376   0xE004             B.N      ??DirectionCtrol_34
+    601              }
+    602              else if(StableNumbers_max >= RowMax*0.20)
+   \                     ??DirectionCtrol_40: (+1)
+   \   00000378   0x2814             CMP      R0,#+20
+   \   0000037A   0xDB01             BLT.N    ??DirectionCtrol_41
+    603              {
+    604                temK = 3.3;	
+   \   0000037C   0x....             LDR.N    R6,??DataTable4_55  ;; 0x40533333
+   \   0000037E   0xE000             B.N      ??DirectionCtrol_34
+    605              }
+    606              else 
+    607              {
+    608                temK = 3.3;	
+   \                     ??DirectionCtrol_41: (+1)
+   \   00000380   0x....             LDR.N    R6,??DataTable4_55  ;; 0x40533333
+    609              }
+    610           temK*=0.95;   
+   \                     ??DirectionCtrol_34: (+1)
+   \   00000382   0x0030             MOVS     R0,R6
+   \   00000384   0x.... 0x....      BL       __aeabi_f2d
+   \   00000388   0xF05F 0x3266      MOVS     R2,#+1717986918
+   \   0000038C   0x....             LDR.N    R3,??DataTable4_58  ;; 0x3fee6666
+   \   0000038E   0x.... 0x....      BL       __aeabi_dmul
+   \   00000392   0x.... 0x....      BL       __aeabi_d2f
+   \   00000396   0x0006             MOVS     R6,R0
+    611          if(PTB21_I) temK*=0.9; 
+   \   00000398   0x....             LDR.N    R0,??DataTable4_59  ;; 0x43fe0a54
+   \   0000039A   0x6800             LDR      R0,[R0, #+0]
+   \   0000039C   0x2800             CMP      R0,#+0
+   \   0000039E   0xD009             BEQ.N    ??DirectionCtrol_32
+   \   000003A0   0x0030             MOVS     R0,R6
+   \   000003A2   0x.... 0x....      BL       __aeabi_f2d
+   \   000003A6   0x....             LDR.N    R2,??DataTable4_60  ;; 0xcccccccd
+   \   000003A8   0x....             LDR.N    R3,??DataTable4_61  ;; 0x3feccccc
+   \   000003AA   0x.... 0x....      BL       __aeabi_dmul
+   \   000003AE   0x.... 0x....      BL       __aeabi_d2f
+   \   000003B2   0x0006             MOVS     R6,R0
+    612            }
+    613           // temK=1;
+    614            if(duojizkb0)MidPos=(int)duojizkb;
+   \                     ??DirectionCtrol_32: (+1)
+   \   000003B4   0x....             LDR.N    R0,??DataTable4_62
+   \   000003B6   0x6800             LDR      R0,[R0, #+0]
+   \   000003B8   0x2100             MOVS     R1,#+0
+   \   000003BA   0x.... 0x....      BL       __aeabi_cfcmpeq
+   \   000003BE   0xD005             BEQ.N    ??DirectionCtrol_42
+   \   000003C0   0x....             LDR.N    R0,??DataTable4_63
+   \   000003C2   0x6800             LDR      R0,[R0, #+0]
+   \   000003C4   0x.... 0x....      BL       __aeabi_f2iz
+   \   000003C8   0x....             LDR.N    R1,??DataTable4_45
+   \   000003CA   0x6008             STR      R0,[R1, #+0]
+    615            duojizkb1=MidPos;        
+   \                     ??DirectionCtrol_42: (+1)
+   \   000003CC   0x....             LDR.N    R0,??DataTable4_45
+   \   000003CE   0x6800             LDR      R0,[R0, #+0]
+   \   000003D0   0x.... 0x....      BL       __aeabi_i2f
+   \   000003D4   0x....             LDR.N    R1,??DataTable4_64
+   \   000003D6   0x6008             STR      R0,[R1, #+0]
+    616            Error = (int)(Error*temK*k*Setk);
+   \   000003D8   0x....             LDR.N    R0,??DataTable4_24
+   \   000003DA   0x6800             LDR      R0,[R0, #+0]
+   \   000003DC   0x.... 0x....      BL       __aeabi_i2f
+   \   000003E0   0x0031             MOVS     R1,R6
+   \   000003E2   0x.... 0x....      BL       __aeabi_fmul
+   \   000003E6   0x....             LDR.N    R1,??DataTable4_28
+   \   000003E8   0x6809             LDR      R1,[R1, #+0]
+   \   000003EA   0x.... 0x....      BL       __aeabi_fmul
+   \   000003EE   0x....             LDR.N    R1,??DataTable4_65
+   \   000003F0   0x6809             LDR      R1,[R1, #+0]
+   \   000003F2   0x.... 0x....      BL       __aeabi_fmul
+   \   000003F6   0x.... 0x....      BL       __aeabi_f2iz
+   \   000003FA   0x....             LDR.N    R1,??DataTable4_24
+   \   000003FC   0x6008             STR      R0,[R1, #+0]
+    617            if(hx)Error *=1.3; 
+   \   000003FE   0x....             LDR.N    R0,??DataTable4_47
+   \   00000400   0x6800             LDR      R0,[R0, #+0]
+   \   00000402   0x2800             CMP      R0,#+0
+   \   00000404   0xD00B             BEQ.N    ??DirectionCtrol_43
+   \   00000406   0x....             LDR.N    R0,??DataTable4_24
+   \   00000408   0x6800             LDR      R0,[R0, #+0]
+   \   0000040A   0x.... 0x....      BL       __aeabi_i2d
+   \   0000040E   0x....             LDR.N    R2,??DataTable4_60  ;; 0xcccccccd
+   \   00000410   0x....             LDR.N    R3,??DataTable4_66  ;; 0x3ff4cccc
+   \   00000412   0x.... 0x....      BL       __aeabi_dmul
+   \   00000416   0x.... 0x....      BL       __aeabi_d2iz
+   \   0000041A   0x....             LDR.N    R1,??DataTable4_24
+   \   0000041C   0x6008             STR      R0,[R1, #+0]
+    618          // if(midline_fcount_max>4&&fabss(Error)>10)Error *=1.3;
+    619            //if(mid_line_count>3&&Error<-20)Error *=1.5;
+    620           //if(mid_line_count>3&&fabss(Error)>20&&StableNumbers<50)Error *=1.8;
+    621          //  if(mid_line_count>5&&Error>20)Error *=2;
+    622            //if(mode3>5&&sfminline_last) Error=LastError*10;
+    623            if(StableNumbers<4) Error=LastError;
+   \                     ??DirectionCtrol_43: (+1)
+   \   0000041E   0x....             LDR.N    R0,??DataTable4_3
+   \   00000420   0x6800             LDR      R0,[R0, #+0]
+   \   00000422   0x2804             CMP      R0,#+4
+   \   00000424   0xDA03             BGE.N    ??DirectionCtrol_44
+   \   00000426   0x....             LDR.N    R0,??DataTable4_67
+   \   00000428   0x6800             LDR      R0,[R0, #+0]
+   \   0000042A   0x....             LDR.N    R1,??DataTable4_24
+   \   0000042C   0x6008             STR      R0,[R1, #+0]
+    624            //        else if(Error<0&&mode4<8)Error *=2;
+    625            //Print6x8int(106,2,Error);//阈值显示
+    626            if(sfminline_last&&!sfminline&&fabss(Error-LastError)>20)Error=LastError;
+   \                     ??DirectionCtrol_44: (+1)
+   \   0000042E   0x....             LDR.N    R0,??DataTable4_68
+   \   00000430   0x6800             LDR      R0,[R0, #+0]
+   \   00000432   0x2800             CMP      R0,#+0
+   \   00000434   0xD010             BEQ.N    ??DirectionCtrol_45
+   \   00000436   0x....             LDR.N    R0,??DataTable4_69
+   \   00000438   0x6800             LDR      R0,[R0, #+0]
+   \   0000043A   0x2800             CMP      R0,#+0
+   \   0000043C   0xD10C             BNE.N    ??DirectionCtrol_45
+   \   0000043E   0x....             LDR.N    R0,??DataTable4_24
+   \   00000440   0x6800             LDR      R0,[R0, #+0]
+   \   00000442   0x....             LDR.N    R1,??DataTable4_67
+   \   00000444   0x6809             LDR      R1,[R1, #+0]
+   \   00000446   0x1A40             SUBS     R0,R0,R1
+   \   00000448   0x.... 0x....      BL       `fabss`
+   \   0000044C   0x2815             CMP      R0,#+21
+   \   0000044E   0xDB03             BLT.N    ??DirectionCtrol_45
+   \   00000450   0x....             LDR.N    R0,??DataTable4_67
+   \   00000452   0x6800             LDR      R0,[R0, #+0]
+   \   00000454   0x....             LDR.N    R1,??DataTable4_24
+   \   00000456   0x6008             STR      R0,[R1, #+0]
+    627            
+    628            interror=Error;
+   \                     ??DirectionCtrol_45: (+1)
+   \   00000458   0x....             LDR.N    R0,??DataTable4_24
+   \   0000045A   0x6800             LDR      R0,[R0, #+0]
+   \   0000045C   0x....             LDR.N    R1,??DataTable4_70
+   \   0000045E   0x6008             STR      R0,[R1, #+0]
+    629            sfminline_last=sfminline;
+   \   00000460   0x....             LDR.N    R0,??DataTable4_69
+   \   00000462   0x6800             LDR      R0,[R0, #+0]
+   \   00000464   0x....             LDR.N    R1,??DataTable4_68
+   \   00000466   0x6008             STR      R0,[R1, #+0]
+    630            //舵机PD控制
+    631            //       if(g_Derict==0&&fabss(Error)>30) Error=0;
+    632            //      if(g_Derict==1&&Error>0) Error=0;     
+    633            //       if(g_Derict==2&&Error<0) Error=0;
+    634            SteerUpdatePWM(0,SteerPidCal(Error));
+   \   00000468   0x....             LDR.N    R0,??DataTable4_24
+   \   0000046A   0x6800             LDR      R0,[R0, #+0]
+   \   0000046C   0x.... 0x....      BL       __aeabi_i2f
+   \   00000470   0x.... 0x....      BL       SteerPidCal
+   \   00000474   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000476   0x.... 0x....      BL       __aeabi_ui2f
+   \   0000047A   0x0001             MOVS     R1,R0
+   \   0000047C   0x2000             MOVS     R0,#+0
+   \   0000047E   0x.... 0x....      BL       SteerUpdatePWM
+    635            LastError = Error;	
+   \   00000482   0x....             LDR.N    R0,??DataTable4_24
+   \   00000484   0x6800             LDR      R0,[R0, #+0]
+   \   00000486   0x....             LDR.N    R1,??DataTable4_67
+   \   00000488   0x6008             STR      R0,[R1, #+0]
+    636            //duoji=SteerPidCal(Error);
+    637            
+    638            }	 
+   \   0000048A   0xBDF1             POP      {R0,R4-R7,PC}    ;; return
+    639            
+    640            //翻转刹车
+
+   \                                 In section .bss, align 4
+    641            int StopCarCount=0;
+   \                     StopCarCount:
+   \   00000000                      DS8 4
+
+   \                                 In section .text, align 2, keep-with-next
+    642            void StopCar(int stopspeed,int count)
+    643            {	  
+   \                     StopCar: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0x000C             MOVS     R4,R1
+    644              if(MotorSpeed>10)
+   \   00000004   0x....             LDR.N    R1,??DataTable4_71
+   \   00000006   0x7809             LDRB     R1,[R1, #+0]
+   \   00000008   0x290B             CMP      R1,#+11
+   \   0000000A   0xDB14             BLT.N    ??StopCar_0
+    645              {
+    646                StopCarCount++;
+   \   0000000C   0x....             LDR.N    R1,??DataTable4_72
+   \   0000000E   0x6809             LDR      R1,[R1, #+0]
+   \   00000010   0x1C49             ADDS     R1,R1,#+1
+   \   00000012   0x....             LDR.N    R2,??DataTable4_72
+   \   00000014   0x6011             STR      R1,[R2, #+0]
+    647                if(StopCarCount > count)
+   \   00000016   0x....             LDR.N    R1,??DataTable4_72
+   \   00000018   0x6809             LDR      R1,[R1, #+0]
+   \   0000001A   0x428C             CMP      R4,R1
+   \   0000001C   0xDA06             BGE.N    ??StopCar_1
+    648                {
+    649                  MotorUpdatePWM(0,0);
+   \   0000001E   0x2100             MOVS     R1,#+0
+   \   00000020   0x2000             MOVS     R0,#+0
+   \   00000022   0x.... 0x....      BL       MotorUpdatePWM
+    650                  StopCarCount =count;	
+   \   00000026   0x....             LDR.N    R0,??DataTable4_72
+   \   00000028   0x6004             STR      R4,[R0, #+0]
+   \   0000002A   0xE008             B.N      ??StopCar_2
+    651                }
+    652                else
+    653                  MotorUpdatePWM(0,stopspeed);	
+   \                     ??StopCar_1: (+1)
+   \   0000002C   0x0001             MOVS     R1,R0
+   \   0000002E   0x2000             MOVS     R0,#+0
+   \   00000030   0x.... 0x....      BL       MotorUpdatePWM
+   \   00000034   0xE003             B.N      ??StopCar_2
+    654              }
+    655              else
+    656                MotorUpdatePWM(0,0);
+   \                     ??StopCar_0: (+1)
+   \   00000036   0x2100             MOVS     R1,#+0
+   \   00000038   0x2000             MOVS     R0,#+0
+   \   0000003A   0x.... 0x....      BL       MotorUpdatePWM
+    657              
+    658            }
+   \                     ??StopCar_2: (+1)
+   \   0000003E   0xBD10             POP      {R4,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4:
+   \   00000000   0x........         DC32     IsStartLine
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_1:
+   \   00000000   0x........         DC32     IsOutRoad
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_2:
+   \   00000000   0x........         DC32     SpeedPid
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_3:
+   \   00000000   0x........         DC32     StableNumbers
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_4:
+   \   00000000   0x........         DC32     IsCrossing
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_5:
+   \   00000000   0x........         DC32     RoadType
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_6:
+   \   00000000   0x........         DC32     StraightSpeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_7:
+   \   00000000   0x........         DC32     AllStraightCount
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_8:
+   \   00000000   0x........         DC32     AllSmallSCount
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_9:
+   \   00000000   0x........         DC32     HighSpeedFlag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_10:
+   \   00000000   0x........         DC32     SmallSSpeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_11:
+   \   00000000   0x........         DC32     BigSSpeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_12:
+   \   00000000   0x........         DC32     BendSpeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_13:
+   \   00000000   0x........         DC32     StraightToBendSpeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_14:
+   \   00000000   0x........         DC32     CommonSpeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_15:
+   \   00000000   0x........         DC32     CanSpeedUp
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_16:
+   \   00000000   0x........         DC32     IncreaseSpeed1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_17:
+   \   00000000   0x........         DC32     IncreaseSpeed2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_18:
+   \   00000000   0x........         DC32     IncreaseSpeed3
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_19:
+   \   00000000   0x........         DC32     BlackLineData
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_20:
+   \   00000000   0x........         DC32     LineWeight
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_21:
+   \   00000000   0x........         DC32     zaw_mode_last
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_22:
+   \   00000000   0x........         DC32     zaw_mode
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_23:
+   \   00000000   0x3FF00000         DC32     0x3ff00000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_24:
+   \   00000000   0x........         DC32     Error
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_25:
+   \   00000000   0x........         DC32     StraightFS
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_26:
+   \   00000000   0x........         DC32     Foresight
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_27:
+   \   00000000   0x........         DC32     StraightK
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_28:
+   \   00000000   0x........         DC32     k
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_29:
+   \   00000000   0x........         DC32     StraightEnd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_30:
+   \   00000000   0x........         DC32     LastRoadType
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_31:
+   \   00000000   0x........         DC32     SmallSFS
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_32:
+   \   00000000   0x........         DC32     SmallSK
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_33:
+   \   00000000   0x........         DC32     SmallSEnd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_34:
+   \   00000000   0x........         DC32     BigFS
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_35:
+   \   00000000   0x........         DC32     BigSK
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_36:
+   \   00000000   0x........         DC32     BigSEnd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_37:
+   \   00000000   0x........         DC32     BendFS
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_38:
+   \   00000000   0x........         DC32     BendK
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_39:
+   \   00000000   0x........         DC32     BendEnd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_40:
+   \   00000000   0x........         DC32     StraightToBendFS
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_41:
+   \   00000000   0x........         DC32     StraightToBenEnd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_42:
+   \   00000000   0x........         DC32     StraightToBendK
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_43:
+   \   00000000   0x........         DC32     CommonK
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_44:
+   \   00000000   0x........         DC32     CommonEnd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_45:
+   \   00000000   0x........         DC32     MidPos
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_46:
+   \   00000000   0x........         DC32     Errora
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_47:
+   \   00000000   0x........         DC32     hx
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_48:
+   \   00000000   0x........         DC32     BlackEndMax
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_49:
+   \   00000000   0x3F8CCCCD         DC32     0x3f8ccccd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_50:
+   \   00000000   0x3FB33333         DC32     0x3fb33333
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_51:
+   \   00000000   0x3FE66666         DC32     0x3fe66666
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_52:
+   \   00000000   0x400CCCCD         DC32     0x400ccccd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_53:
+   \   00000000   0x40200000         DC32     0x40200000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_54:
+   \   00000000   0x4039999A         DC32     0x4039999a
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_55:
+   \   00000000   0x40533333         DC32     0x40533333
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_56:
+   \   00000000   0x9999999A         DC32     0x9999999a
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_57:
+   \   00000000   0x3FF19999         DC32     0x3ff19999
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_58:
+   \   00000000   0x3FEE6666         DC32     0x3fee6666
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_59:
+   \   00000000   0x43FE0A54         DC32     0x43fe0a54
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_60:
+   \   00000000   0xCCCCCCCD         DC32     0xcccccccd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_61:
+   \   00000000   0x3FECCCCC         DC32     0x3feccccc
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_62:
+   \   00000000   0x........         DC32     duojizkb0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_63:
+   \   00000000   0x........         DC32     duojizkb
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_64:
+   \   00000000   0x........         DC32     duojizkb1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_65:
+   \   00000000   0x........         DC32     Setk
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_66:
+   \   00000000   0x3FF4CCCC         DC32     0x3ff4cccc
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_67:
+   \   00000000   0x........         DC32     LastError
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_68:
+   \   00000000   0x........         DC32     sfminline_last
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_69:
+   \   00000000   0x........         DC32     sfminline
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_70:
+   \   00000000   0x........         DC32     interror
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_71:
+   \   00000000   0x........         DC32     MotorSpeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_72:
+   \   00000000   0x........         DC32     StopCarCount
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      24   DirectionCtrol
+        24   -> GetSteerError2
+        24   -> SteerPidCal
+        24   -> SteerUpdatePWM
+        24   -> __aeabi_d2f
+        24   -> __aeabi_d2iz
+        24   -> __aeabi_dmul
+        24   -> __aeabi_f2d
+        24   -> __aeabi_f2iz
+        24   -> __aeabi_fmul
+        24   -> __aeabi_i2d
+        24   -> __aeabi_i2f
+        24   -> __aeabi_ui2f
+        24   -> fabss
+        24 __aeabi_cfcmpeq
+      24   GetSteerError
+        24   -> __aeabi_d2f
+        24   -> __aeabi_ddiv
+        24   -> __aeabi_dmul
+        24   -> __aeabi_dsub
+        24   -> __aeabi_f2d
+        24   -> __aeabi_ui2d
+      16   GetSteerError2
+        16   -> __aeabi_f2iz
+        16   -> __aeabi_fadd
+        16   -> __aeabi_fsub
+        16   -> __aeabi_i2f
+       8   SpeedCtrol
+         8   -> MotorPidCal
+         8   -> MotorUpdatePWM
+       8   StopCar
+         8   -> MotorUpdatePWM
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_10
+       4  ??DataTable4_11
+       4  ??DataTable4_12
+       4  ??DataTable4_13
+       4  ??DataTable4_14
+       4  ??DataTable4_15
+       4  ??DataTable4_16
+       4  ??DataTable4_17
+       4  ??DataTable4_18
+       4  ??DataTable4_19
+       4  ??DataTable4_2
+       4  ??DataTable4_20
+       4  ??DataTable4_21
+       4  ??DataTable4_22
+       4  ??DataTable4_23
+       4  ??DataTable4_24
+       4  ??DataTable4_25
+       4  ??DataTable4_26
+       4  ??DataTable4_27
+       4  ??DataTable4_28
+       4  ??DataTable4_29
+       4  ??DataTable4_3
+       4  ??DataTable4_30
+       4  ??DataTable4_31
+       4  ??DataTable4_32
+       4  ??DataTable4_33
+       4  ??DataTable4_34
+       4  ??DataTable4_35
+       4  ??DataTable4_36
+       4  ??DataTable4_37
+       4  ??DataTable4_38
+       4  ??DataTable4_39
+       4  ??DataTable4_4
+       4  ??DataTable4_40
+       4  ??DataTable4_41
+       4  ??DataTable4_42
+       4  ??DataTable4_43
+       4  ??DataTable4_44
+       4  ??DataTable4_45
+       4  ??DataTable4_46
+       4  ??DataTable4_47
+       4  ??DataTable4_48
+       4  ??DataTable4_49
+       4  ??DataTable4_5
+       4  ??DataTable4_50
+       4  ??DataTable4_51
+       4  ??DataTable4_52
+       4  ??DataTable4_53
+       4  ??DataTable4_54
+       4  ??DataTable4_55
+       4  ??DataTable4_56
+       4  ??DataTable4_57
+       4  ??DataTable4_58
+       4  ??DataTable4_59
+       4  ??DataTable4_6
+       4  ??DataTable4_60
+       4  ??DataTable4_61
+       4  ??DataTable4_62
+       4  ??DataTable4_63
+       4  ??DataTable4_64
+       4  ??DataTable4_65
+       4  ??DataTable4_66
+       4  ??DataTable4_67
+       4  ??DataTable4_68
+       4  ??DataTable4_69
+       4  ??DataTable4_7
+       4  ??DataTable4_70
+       4  ??DataTable4_71
+       4  ??DataTable4_72
+       4  ??DataTable4_8
+       4  ??DataTable4_9
+       1  AllSmallSCount
+       1  AllStraightCount
+       1  BendEnd
+       4  BendFS
+       4  BendK
+       1  BendSpeed
+       4  BigFS
+       1  BigSEnd
+       4  BigSK
+       1  BigSSpeed
+       1  CanSpeedUp
+       1  CommonEnd
+       4  CommonFS
+       4  CommonK
+       1  CommonSpeed
+       4  CrossingBegin
+       4  CrossingCount
+    1164  DirectionCtrol
+       4  Error
+       4  Errora
+       1  FarWeight
+       4  Foresight
+     114  GetSteerError
+     190  GetSteerError2
+       4  HighSpeedCount
+       4  HighSpeedFlag
+       1  IncreaseSpeed1
+       1  IncreaseSpeed2
+       1  IncreaseSpeed3
+       1  IsCrossing
+       1  IsOutRoad
+       1  IsStartLine
+       4  LastError
+     400  LineWeight
+       4  MidPos
+       4  MidPos_h
+       1  MotorSpeed
+       1  SmallSEnd
+       4  SmallSFS
+       4  SmallSK
+       1  SmallSSpeed
+     456  SpeedCtrol
+       4  SpeedPid
+      64  StopCar
+       4  StopCarCount
+       4  StopNowCount
+       1  StraightEnd
+       4  StraightFS
+       4  StraightK
+       1  StraightSpeed
+       1  StraightToBenEnd
+       4  StraightToBendFS
+       4  StraightToBendK
+       1  StraightToBendSpeed
+       4  TemError
+       4  caidan
+       4  duoji
+       4  hx_direct
+       4  hx_over
+       4  interror
+       4  k
+       4  sfminline_last
+       4  yxh
+       4  zaw_mode_last
+
+ 
+   482 bytes in section .bss
+    81 bytes in section .data
+ 2 280 bytes in section .text
+ 
+ 2 280 bytes of CODE memory
+   563 bytes of DATA memory
+
+Errors: none
+Warnings: none

@@ -118,19 +118,26 @@ void translation(void)//接收串口字符串程序
                 }
                 t_control();   
                 
-                // printf("%d %d\n",start_mode,control_duty);
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                 SD_saveimg();
-                 
-
+                // printf("%d %d\n",start_mode,control_duty);   
+                if(receive_num[0]==10)
+                {
+                    
+                    ftm_pwm_duty(FTM0, FTM_CH3,0); 
+                    ftm_pwm_duty(FTM0, FTM_CH0,0); 
+                    
+                    ftm_pwm_duty(FTM0, FTM_CH1,0);
+                    ftm_pwm_duty(FTM0, FTM_CH2,0);
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                    
+                    SD_saveimg();
+                }
+             
 	}
 
 }

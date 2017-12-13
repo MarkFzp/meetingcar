@@ -1,6 +1,18 @@
 #include "common.h"
 #include "include.h"
 #include "FTM.h"
+#include "allheader.h" 
+
+
+
+
+void echo_speed_process(void)                                               
+{
+      FTM_get();                                                //编码器采集
+      ECHO_IIR_Filter(&echo_speed,&filter_echo_speed);          //编码器数据滤波
+      //real_speed = (filter_echo_speed.left + filter_echo_speed.right)/2.0f;
+}
+
 
 
 void FTM_init(void)
